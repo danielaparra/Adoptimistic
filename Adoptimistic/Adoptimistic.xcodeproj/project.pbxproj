@@ -11,6 +11,9 @@
 		7BDC843A21BEFED3006AF641 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BDC843821BEFED3006AF641 /* Main.storyboard */; };
 		7BDC843C21BEFED5006AF641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDC843B21BEFED5006AF641 /* Assets.xcassets */; };
 		7BDC843F21BEFED5006AF641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BDC843D21BEFED5006AF641 /* LaunchScreen.storyboard */; };
+		7BDC844A21BF1C61006AF641 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDC844921BF1C61006AF641 /* MapKit.framework */; };
+		7BDC844B21BF1C93006AF641 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BDC844021BEFED5006AF641 /* Info.plist */; };
+		7BDC845121BF1D18006AF641 /* Adoptimistic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC844F21BF1D18006AF641 /* Adoptimistic.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,8 @@
 		7BDC843B21BEFED5006AF641 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BDC843E21BEFED5006AF641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BDC844021BEFED5006AF641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BDC844921BF1C61006AF641 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7BDC845021BF1D18006AF641 /* Adoptimistic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Adoptimistic.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDC844A21BF1C61006AF641 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +44,7 @@
 			children = (
 				7BDC843321BEFED3006AF641 /* Adoptimistic */,
 				7BDC843221BEFED3006AF641 /* Products */,
+				7BDC844821BF1C61006AF641 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,13 +59,46 @@
 		7BDC843321BEFED3006AF641 /* Adoptimistic */ = {
 			isa = PBXGroup;
 			children = (
-				7BDC843421BEFED3006AF641 /* AppDelegate.swift */,
-				7BDC843821BEFED3006AF641 /* Main.storyboard */,
-				7BDC843B21BEFED5006AF641 /* Assets.xcassets */,
-				7BDC843D21BEFED5006AF641 /* LaunchScreen.storyboard */,
-				7BDC844021BEFED5006AF641 /* Info.plist */,
+				7BDC844C21BF1CC0006AF641 /* Model */,
+				7BDC844621BF1B48006AF641 /* Storyboard */,
+				7BDC844721BF1B5F006AF641 /* Resources */,
 			);
 			path = Adoptimistic;
+			sourceTree = "<group>";
+		};
+		7BDC844621BF1B48006AF641 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7BDC843821BEFED3006AF641 /* Main.storyboard */,
+				7BDC843D21BEFED5006AF641 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		7BDC844721BF1B5F006AF641 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7BDC843421BEFED3006AF641 /* AppDelegate.swift */,
+				7BDC843B21BEFED5006AF641 /* Assets.xcassets */,
+				7BDC844021BEFED5006AF641 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7BDC844821BF1C61006AF641 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BDC844921BF1C61006AF641 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7BDC844C21BF1CC0006AF641 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BDC844F21BF1D18006AF641 /* Adoptimistic.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +133,11 @@
 				TargetAttributes = {
 					7BDC843021BEFED3006AF641 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -119,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDC844B21BF1C93006AF641 /* Info.plist in Resources */,
 				7BDC843F21BEFED5006AF641 /* LaunchScreen.storyboard in Resources */,
 				7BDC843C21BEFED5006AF641 /* Assets.xcassets in Resources */,
 				7BDC843A21BEFED3006AF641 /* Main.storyboard in Resources */,
@@ -133,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BDC843521BEFED3006AF641 /* AppDelegate.swift in Sources */,
+				7BDC845121BF1D18006AF641 /* Adoptimistic.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +377,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7BDC844F21BF1D18006AF641 /* Adoptimistic.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7BDC845021BF1D18006AF641 /* Adoptimistic.xcdatamodel */,
+			);
+			currentVersion = 7BDC845021BF1D18006AF641 /* Adoptimistic.xcdatamodel */;
+			path = Adoptimistic.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7BDC842921BEFED3006AF641 /* Project object */;
 }

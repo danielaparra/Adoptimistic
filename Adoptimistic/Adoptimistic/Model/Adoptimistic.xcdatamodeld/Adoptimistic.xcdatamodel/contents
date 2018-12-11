@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G4015" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Pet" representedClassName="Pet" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="animal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="breeds" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="mix" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shelterId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shelterPetId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="shelter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shelter" inverseName="shelterPets" inverseEntity="Shelter" syncable="YES"/>
+    </entity>
+    <entity name="Shelter" representedClassName="Shelter" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" syncable="YES"/>
+        <attribute name="city" optional="YES" syncable="YES"/>
+        <attribute name="country" optional="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" syncable="YES"/>
+        <attribute name="latitude" optional="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" syncable="YES"/>
+        <attribute name="phone" optional="YES" syncable="YES"/>
+        <attribute name="state" optional="YES" syncable="YES"/>
+        <attribute name="zip" optional="YES" syncable="YES"/>
+        <relationship name="shelterPets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="shelter" inverseEntity="Pet" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Pet" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="Shelter" positionX="155.796875" positionY="-281.66796875" width="128" height="210"/>
+    </elements>
+</model>
