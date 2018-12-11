@@ -29,11 +29,11 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="zip" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="zipcode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="shelterPets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="shelter" inverseEntity="Pet" syncable="YES"/>
     </entity>
     <elements>
         <element name="Pet" positionX="-63" positionY="-18" width="128" height="285"/>
-        <element name="Shelter" positionX="155.796875" positionY="-281.66796875" width="128" height="225"/>
+        <element name="Shelter" positionX="155.796875" positionY="-281.66796875" width="128" height="30"/>
     </elements>
 </model>
