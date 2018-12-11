@@ -28,6 +28,7 @@
 		7BDC847021C03803006AF641 /* PetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846F21C03803006AF641 /* PetController.swift */; };
 		7BDC847221C03832006AF641 /* PetfinderClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847121C03832006AF641 /* PetfinderClient.swift */; };
 		7BDC847421C04CCC006AF641 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847321C04CCC006AF641 /* HTTPMethod.swift */; };
+		7BDC847621C059BB006AF641 /* BreedResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847521C059BB006AF641 /* BreedResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		7BDC846F21C03803006AF641 /* PetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetController.swift; sourceTree = "<group>"; };
 		7BDC847121C03832006AF641 /* PetfinderClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetfinderClient.swift; sourceTree = "<group>"; };
 		7BDC847321C04CCC006AF641 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		7BDC847521C059BB006AF641 /* BreedResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				7BDC845821BF58ED006AF641 /* PetRepresentation.swift */,
 				7BDC845C21C0073C006AF641 /* Shelter+Convenience.swift */,
 				7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */,
+				7BDC847521C059BB006AF641 /* BreedResults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				7BDC847221C03832006AF641 /* PetfinderClient.swift in Sources */,
 				7BDC846221C03679006AF641 /* PetSearchCollectionViewController.swift in Sources */,
 				7BDC846621C036C1006AF641 /* FavoritesCollectionViewController.swift in Sources */,
+				7BDC847621C059BB006AF641 /* BreedResults.swift in Sources */,
 				7BDC845F21C00768006AF641 /* ShelterRepresentation.swift in Sources */,
 				7BDC846821C036E0006AF641 /* PetDetailViewController.swift in Sources */,
 				7BDC845521BF5056006AF641 /* CoreDataStack.swift in Sources */,

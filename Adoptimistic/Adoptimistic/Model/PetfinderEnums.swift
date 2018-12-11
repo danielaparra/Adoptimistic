@@ -52,3 +52,9 @@ enum SizeType: String {
 enum TCodingKey: String, CodingKey {
     case t = "$t"
 }
+
+enum OutputType: String {
+    case id
+    case basic
+    case full
+}
