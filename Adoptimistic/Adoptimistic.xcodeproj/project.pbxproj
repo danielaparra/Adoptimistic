@@ -18,6 +18,8 @@
 		7BDC845721BF5088006AF641 /* Pet+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845621BF5088006AF641 /* Pet+Convenience.swift */; };
 		7BDC845921BF58ED006AF641 /* PetRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845821BF58ED006AF641 /* PetRepresentation.swift */; };
 		7BDC845B21BF5FCC006AF641 /* PetfinderEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845A21BF5FCC006AF641 /* PetfinderEnums.swift */; };
+		7BDC845D21C0073C006AF641 /* Shelter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845C21C0073C006AF641 /* Shelter+Convenience.swift */; };
+		7BDC845F21C00768006AF641 /* ShelterRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		7BDC845621BF5088006AF641 /* Pet+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pet+Convenience.swift"; sourceTree = "<group>"; };
 		7BDC845821BF58ED006AF641 /* PetRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetRepresentation.swift; sourceTree = "<group>"; };
 		7BDC845A21BF5FCC006AF641 /* PetfinderEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetfinderEnums.swift; sourceTree = "<group>"; };
+		7BDC845C21C0073C006AF641 /* Shelter+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shelter+Convenience.swift"; sourceTree = "<group>"; };
+		7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterRepresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				7BDC845421BF5056006AF641 /* CoreDataStack.swift */,
 				7BDC845621BF5088006AF641 /* Pet+Convenience.swift */,
 				7BDC845821BF58ED006AF641 /* PetRepresentation.swift */,
+				7BDC845C21C0073C006AF641 /* Shelter+Convenience.swift */,
+				7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,8 +196,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDC845F21C00768006AF641 /* ShelterRepresentation.swift in Sources */,
 				7BDC845521BF5056006AF641 /* CoreDataStack.swift in Sources */,
 				7BDC845921BF58ED006AF641 /* PetRepresentation.swift in Sources */,
+				7BDC845D21C0073C006AF641 /* Shelter+Convenience.swift in Sources */,
 				7BDC845B21BF5FCC006AF641 /* PetfinderEnums.swift in Sources */,
 				7BDC845721BF5088006AF641 /* Pet+Convenience.swift in Sources */,
 				7BDC843521BEFED3006AF641 /* AppDelegate.swift in Sources */,

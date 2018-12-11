@@ -10,14 +10,14 @@ import Foundation
 
 struct PetRepresentation: Decodable, Equatable {
     let age: AgeType
-    let animal: String
+    let animal: String //Animal Type
     let breeds: [String]
     let description: String
     let identifier: Int16
     let lastUpdate: Date
     let mix: Bool
     let name: String
-    let options: [String]
+    let options: [String]?
     let photos: [String]
     let sex: String
     let shelterId: String
@@ -25,6 +25,11 @@ struct PetRepresentation: Decodable, Equatable {
     let size: String
 }
 
-struct PetRepResults {
+struct PetRandomResult: Decodable {
+    let pet: PetRepresentation
     
+}
+
+struct PetsResults: Decodable {
+    let pets: [PetRepresentation]
 }
