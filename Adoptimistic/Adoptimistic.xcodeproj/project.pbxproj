@@ -14,6 +14,10 @@
 		7BDC844A21BF1C61006AF641 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDC844921BF1C61006AF641 /* MapKit.framework */; };
 		7BDC844B21BF1C93006AF641 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BDC844021BEFED5006AF641 /* Info.plist */; };
 		7BDC845121BF1D18006AF641 /* Adoptimistic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC844F21BF1D18006AF641 /* Adoptimistic.xcdatamodeld */; };
+		7BDC845521BF5056006AF641 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845421BF5056006AF641 /* CoreDataStack.swift */; };
+		7BDC845721BF5088006AF641 /* Pet+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845621BF5088006AF641 /* Pet+Convenience.swift */; };
+		7BDC845921BF58ED006AF641 /* PetRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845821BF58ED006AF641 /* PetRepresentation.swift */; };
+		7BDC845B21BF5FCC006AF641 /* PetfinderEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845A21BF5FCC006AF641 /* PetfinderEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		7BDC844021BEFED5006AF641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BDC844921BF1C61006AF641 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7BDC845021BF1D18006AF641 /* Adoptimistic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Adoptimistic.xcdatamodel; sourceTree = "<group>"; };
+		7BDC845421BF5056006AF641 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		7BDC845621BF5088006AF641 /* Pet+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pet+Convenience.swift"; sourceTree = "<group>"; };
+		7BDC845821BF58ED006AF641 /* PetRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetRepresentation.swift; sourceTree = "<group>"; };
+		7BDC845A21BF5FCC006AF641 /* PetfinderEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetfinderEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				7BDC844F21BF1D18006AF641 /* Adoptimistic.xcdatamodeld */,
+				7BDC845A21BF5FCC006AF641 /* PetfinderEnums.swift */,
+				7BDC845421BF5056006AF641 /* CoreDataStack.swift */,
+				7BDC845621BF5088006AF641 /* Pet+Convenience.swift */,
+				7BDC845821BF58ED006AF641 /* PetRepresentation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +190,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDC845521BF5056006AF641 /* CoreDataStack.swift in Sources */,
+				7BDC845921BF58ED006AF641 /* PetRepresentation.swift in Sources */,
+				7BDC845B21BF5FCC006AF641 /* PetfinderEnums.swift in Sources */,
+				7BDC845721BF5088006AF641 /* Pet+Convenience.swift in Sources */,
 				7BDC843521BEFED3006AF641 /* AppDelegate.swift in Sources */,
 				7BDC845121BF1D18006AF641 /* Adoptimistic.xcdatamodeld in Sources */,
 			);
