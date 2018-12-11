@@ -281,14 +281,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CKJ-BT-ycu">
                                                 <rect key="frame" x="0.0" y="16" width="380" height="0.0"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbK-Ky-NQR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="0.0"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbK-Ky-NQR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mMr-bV-oZL">
-                                                        <rect key="frame" x="50" y="0.0" width="330" height="1"/>
+                                                        <rect key="frame" x="43" y="0.0" width="337" height="1"/>
                                                         <segments>
                                                             <segment title="Baby"/>
                                                             <segment title="Young"/>
@@ -455,6 +455,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GF7-z2-w6b"/>
+        <segue reference="glR-aD-dWf"/>
     </inferredMetricsTieBreakers>
 </document>

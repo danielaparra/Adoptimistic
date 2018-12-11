@@ -80,7 +80,7 @@ struct ShelterRepresentation: Decodable {
     }
 }
 
-struct ShelterResult {
+struct ShelterResult: Decodable {
     let shelter: ShelterRepresentation
     
     enum CodingKeys: String, CodingKey {

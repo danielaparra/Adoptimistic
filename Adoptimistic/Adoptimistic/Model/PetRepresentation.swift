@@ -47,14 +47,14 @@ struct PetRepresentation: Decodable, Equatable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let optionsContainer = try container.nestedContainer(keyedBy: OptionsCodingKeys.self, forKey: .options)
-        var optionContainer = try optionsContainer.nestedUnkeyedContainer(forKey: .option)
-        var optionStrings: [String] = []
-        while !optionContainer.isAtEnd {
-            let optionDictionary = try optionContainer.nestedContainer(keyedBy: TCodingKey.self)
-            let option = try optionDictionary.decode(String.self, forKey: .t)
-            optionStrings.append(option)
-        }
+//        let optionsContainer = try container.nestedContainer(keyedBy: OptionsCodingKeys.self, forKey: .options)
+//        var optionContainer = try optionsContainer.nestedUnkeyedContainer(forKey: .option)
+//        var optionStrings: [String] = []
+//        while !optionContainer.isAtEnd {
+//            let optionDictionary = try optionContainer.nestedContainer(keyedBy: TCodingKey.self)
+//            let option = try optionDictionary.decode(String.self, forKey: .t)
+//            optionStrings.append(option)
+//        }
         //haven't accounted for just one option or nil
         
         let ageContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .age)
@@ -87,7 +87,7 @@ struct PetRepresentation: Decodable, Equatable {
         let animalContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .animal)
         let animal = try animalContainer.decode(String.self, forKey: .t)
         
-        self.options = optionStrings
+        self.options = [""]
         self.age = age
         self.size = size
         //photos

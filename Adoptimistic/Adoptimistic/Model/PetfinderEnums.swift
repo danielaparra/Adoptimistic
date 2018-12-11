@@ -18,7 +18,7 @@ enum AgeType: String, Decodable {
 enum AnimalType: String {
     case dog
     case cat
-    case smallFurry = "Small & Furry"
+    case smallFurry// = "Small & Furry"
     case barnYard
     case bird
     case horse
