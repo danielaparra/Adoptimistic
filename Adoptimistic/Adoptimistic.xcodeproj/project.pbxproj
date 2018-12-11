@@ -20,6 +20,12 @@
 		7BDC845B21BF5FCC006AF641 /* PetfinderEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845A21BF5FCC006AF641 /* PetfinderEnums.swift */; };
 		7BDC845D21C0073C006AF641 /* Shelter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845C21C0073C006AF641 /* Shelter+Convenience.swift */; };
 		7BDC845F21C00768006AF641 /* ShelterRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */; };
+		7BDC846221C03679006AF641 /* PetSearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846121C03679006AF641 /* PetSearchCollectionViewController.swift */; };
+		7BDC846421C036A0006AF641 /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846321C036A0006AF641 /* MapSearchViewController.swift */; };
+		7BDC846621C036C1006AF641 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846521C036C1006AF641 /* FavoritesCollectionViewController.swift */; };
+		7BDC846821C036E0006AF641 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846721C036E0006AF641 /* PetDetailViewController.swift */; };
+		7BDC846A21C0372C006AF641 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846921C0372C006AF641 /* MainTabBarViewController.swift */; };
+		7BDC846C21C0376E006AF641 /* TransitionalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846B21C0376E006AF641 /* TransitionalNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +43,12 @@
 		7BDC845A21BF5FCC006AF641 /* PetfinderEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetfinderEnums.swift; sourceTree = "<group>"; };
 		7BDC845C21C0073C006AF641 /* Shelter+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shelter+Convenience.swift"; sourceTree = "<group>"; };
 		7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterRepresentation.swift; sourceTree = "<group>"; };
+		7BDC846121C03679006AF641 /* PetSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSearchCollectionViewController.swift; sourceTree = "<group>"; };
+		7BDC846321C036A0006AF641 /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
+		7BDC846521C036C1006AF641 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
+		7BDC846721C036E0006AF641 /* PetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
+		7BDC846921C0372C006AF641 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		7BDC846B21C0376E006AF641 /* TransitionalNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionalNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,9 @@
 		7BDC843321BEFED3006AF641 /* Adoptimistic */ = {
 			isa = PBXGroup;
 			children = (
+				7BDC846E21C037B8006AF641 /* Network Client */,
+				7BDC846D21C037A6006AF641 /* Model Controller */,
+				7BDC846021C0364C006AF641 /* View Controllers */,
 				7BDC844C21BF1CC0006AF641 /* Model */,
 				7BDC844621BF1B48006AF641 /* Storyboard */,
 				7BDC844721BF1B5F006AF641 /* Resources */,
@@ -117,6 +132,33 @@
 				7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7BDC846021C0364C006AF641 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7BDC846121C03679006AF641 /* PetSearchCollectionViewController.swift */,
+				7BDC846321C036A0006AF641 /* MapSearchViewController.swift */,
+				7BDC846521C036C1006AF641 /* FavoritesCollectionViewController.swift */,
+				7BDC846721C036E0006AF641 /* PetDetailViewController.swift */,
+				7BDC846921C0372C006AF641 /* MainTabBarViewController.swift */,
+				7BDC846B21C0376E006AF641 /* TransitionalNavigationController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7BDC846D21C037A6006AF641 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		7BDC846E21C037B8006AF641 /* Network Client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Network Client";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +238,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDC846221C03679006AF641 /* PetSearchCollectionViewController.swift in Sources */,
+				7BDC846621C036C1006AF641 /* FavoritesCollectionViewController.swift in Sources */,
 				7BDC845F21C00768006AF641 /* ShelterRepresentation.swift in Sources */,
+				7BDC846821C036E0006AF641 /* PetDetailViewController.swift in Sources */,
 				7BDC845521BF5056006AF641 /* CoreDataStack.swift in Sources */,
+				7BDC846C21C0376E006AF641 /* TransitionalNavigationController.swift in Sources */,
+				7BDC846421C036A0006AF641 /* MapSearchViewController.swift in Sources */,
 				7BDC845921BF58ED006AF641 /* PetRepresentation.swift in Sources */,
+				7BDC846A21C0372C006AF641 /* MainTabBarViewController.swift in Sources */,
 				7BDC845D21C0073C006AF641 /* Shelter+Convenience.swift in Sources */,
 				7BDC845B21BF5FCC006AF641 /* PetfinderEnums.swift in Sources */,
 				7BDC845721BF5088006AF641 /* Pet+Convenience.swift in Sources */,

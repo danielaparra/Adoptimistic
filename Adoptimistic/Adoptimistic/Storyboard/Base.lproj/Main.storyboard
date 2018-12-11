@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Transitional Navigation Controller-->
         <scene sceneID="O9s-pG-WHx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LlK-yr-gLY" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LlK-yr-gLY" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="hbF-5N-KJF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3MQ-v2-fT1">
@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="120.8" y="167.76611694152925"/>
         </scene>
-        <!--View Controller-->
+        <!--Map Search View Controller-->
         <scene sceneID="v2Y-hQ-5An">
             <objects>
-                <viewController id="4FC-4W-lcq" sceneMemberID="viewController">
+                <viewController id="4FC-4W-lcq" customClass="MapSearchViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="89V-li-OsT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="905" y="897"/>
         </scene>
-        <!--View Controller-->
+        <!--Pet Detail View Controller-->
         <scene sceneID="2pB-Sh-bTh">
             <objects>
-                <viewController id="fDO-iY-peH" sceneMemberID="viewController">
+                <viewController id="fDO-iY-peH" customClass="PetDetailViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mYM-NE-z1T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="1861.5999999999999" y="608.54572713643188"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="XEw-Lh-ele">
             <objects>
-                <tabBarController id="4uo-0f-4ZB" sceneMemberID="viewController">
+                <tabBarController id="4uo-0f-4ZB" customClass="MainTabBarViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5wm-ZV-8to">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="-722" y="545"/>
         </scene>
-        <!--View Controller-->
+        <!--Pet Search Collection View Controller-->
         <scene sceneID="fpa-I6-09B">
             <objects>
-                <viewController id="8Pl-yH-sHD" sceneMemberID="viewController">
+                <viewController id="8Pl-yH-sHD" customClass="PetSearchCollectionViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qhb-uG-DZn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -356,7 +356,7 @@
         <!--Pets Nearby-->
         <scene sceneID="Td7-1H-3FD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g5f-Qz-WWf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g5f-Qz-WWf" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Pets Nearby" id="HJD-iV-3RI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ego-3Y-6cs">
@@ -372,10 +372,10 @@
             </objects>
             <point key="canvasLocation" x="120.8" y="897.30134932533736"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Favorites Collection View Controller-->
         <scene sceneID="qp3-gS-Yxf">
             <objects>
-                <collectionViewController id="otv-ES-Hja" sceneMemberID="viewController">
+                <collectionViewController id="otv-ES-Hja" customClass="FavoritesCollectionViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="x9d-sM-B7P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -434,10 +434,10 @@
             </objects>
             <point key="canvasLocation" x="905" y="1645"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Transitional Navigation Controller-->
         <scene sceneID="9hu-vW-R5w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ser-Ta-Ojh" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ser-Ta-Ojh" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="baQ-7c-l2v"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jXA-xL-St8">
