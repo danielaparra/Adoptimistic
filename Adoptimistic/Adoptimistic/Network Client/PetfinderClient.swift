@@ -69,9 +69,6 @@ class PetfinderClient {
         }.resume()
     }
     
-    //find pet by id
-    
-    
     //Fetch random pet by location and optional parameters (pet.getRandom)
     func getRandomPet(from location: String, animal: AnimalType? = nil, breed: String? = nil, size: SizeType? = nil, sex: GenderType? = nil, shelterId: String? = nil, output: OutputType = .basic, completion: @escaping (PetRepresentation?, Error?) -> Void ) {
         
@@ -170,9 +167,54 @@ class PetfinderClient {
         }.resume()
     }
     
-    //find all pets from one shelter
+    //Fetch all pets from a given shelter (shelter.getPets)
     
-    //Find all breeds for a given animal type (breed.list)
+    func fetchAllPets(from shelterId: String, output: OutputType = .basic, offset: String? = nil, completion: @escaping ([PetRepresentation]?, Error?) -> Void ) {
+        let url = baseURL.appendingPathComponent("shelter").appendingPathExtension("getPets")
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        
+        var parameters = ["key": apiKey, "format": "json", "id": shelterId, "output": output.rawValue]
+        if let offset = offset {
+            parameters["offset"] = offset
+        }
+        
+        guard let requestURL = urlComponents?.url else { return }
+        
+        let queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponents?.queryItems = queryItems
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod  = HTTPMethod.get.rawValue
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error fetching pets from shelter id \(shelterId): \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data returned by data task")
+                completion(nil, NSError())
+                return
+            }
+            
+            if let json = String(data: data, encoding: .utf8) {
+                print(json)
+            }
+            
+            do {
+                let petsFindResult = try JSONDecoder().decode(PetsFindResult.self, from: data)
+                completion(petsFindResult.pets, nil)
+            } catch {
+                NSLog("Error decoding pet representations: \(error)")
+                completion(nil, error)
+                return
+            }
+        }.resume()
+    }
+    
+    //Fetch all breeds for a given animal type (breed.list)
     func fetchAllBreeds(of animal: AnimalType, completion: @escaping ([String]?, Error?) -> Void ) {
         let url = baseURL.appendingPathComponent("breed").appendingPathExtension("list")
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
