@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapSearchViewController: UIViewController, MKMapViewDelegate {
+class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +58,12 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Properties
     
-    private var petNearbyResults: [PetRepresentation]? {
-        didSet {
-            
-        }
-    }
+//    private var petNearbyResults: [PetRepresentation]? {
+//        didSet {
+//            
+//        }
+//    }
+    var petController: PetController?
     
     private let locationManager = CLLocationManager()
     private var userTrackingButton: MKUserTrackingButton!

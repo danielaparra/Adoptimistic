@@ -476,7 +476,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5Qf-Y8-GeX">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PetCell" id="5Qf-Y8-GeX">
                                 <rect key="frame" x="10" y="10" width="165" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -552,6 +552,6 @@
         <image name="Unfavorite" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QXc-zb-Peq"/>
+        <segue reference="GF7-z2-w6b"/>
     </inferredMetricsTieBreakers>
 </document>

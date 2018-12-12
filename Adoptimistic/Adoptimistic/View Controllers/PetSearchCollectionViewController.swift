@@ -8,9 +8,8 @@
 
 import UIKit
 
-class PetSearchCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class PetSearchCollectionViewController: UIViewController, PetControllerProtocol, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -105,6 +104,7 @@ class PetSearchCollectionViewController: UIViewController, UICollectionViewDataS
     
     // MARK: - Properties
     
+    var petController: PetController?
     private var petSearchResults: [PetRepresentation]? {
         didSet {
             DispatchQueue.main.async {
