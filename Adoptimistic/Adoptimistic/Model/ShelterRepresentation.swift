@@ -17,7 +17,7 @@ struct ShelterRepresentation: Decodable {
     let latitude: Double
     let longitude: Double
     let name: String
-    let phone: String
+    let phone: String?
     let state: String
     let zipcode: Int16
     
@@ -41,11 +41,11 @@ struct ShelterRepresentation: Decodable {
         let countryContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .country)
         let country = try countryContainer.decode(String.self, forKey: .t)
         let longitudeContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .longitude)
-        let longitude = try longitudeContainer.decode(Double.self, forKey: .t)
+        let longitude = try longitudeContainer.decode(String.self, forKey: .t)
         let nameContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .name)
         let name = try nameContainer.decode(String.self, forKey: .t)
         let phoneContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .phone)
-        let phone = try phoneContainer.decode(String.self, forKey: .t)
+        let phone = try phoneContainer.decodeIfPresent(String.self, forKey: .t)
         let stateContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .state)
         let state = try stateContainer.decode(String.self, forKey: .t)
         
@@ -60,22 +60,22 @@ struct ShelterRepresentation: Decodable {
         let cityContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .city)
         let city = try cityContainer.decode(String.self, forKey: .t)
         let zipcodeContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .zip)
-        let zipcode = try zipcodeContainer.decode(Int16.self, forKey: .t)
+        let zipcode = try zipcodeContainer.decode(String.self, forKey: .t)
         let latitudeContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .latitude)
-        let latitude = try latitudeContainer.decode(Double.self, forKey: .t)
+        let latitude = try latitudeContainer.decode(String.self, forKey: .t)
         let idContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .id)
         let identifier = try idContainer.decode(String.self, forKey: .t)
         
         self.country = country
-        self.longitude = longitude
+        self.longitude = Double(longitude) ?? 0.0
         self.name = name
         self.phone = phone
         self.state = state
         self.address = address
         self.email = email
         self.city = city
-        self.zipcode = zipcode
-        self.latitude = latitude
+        self.zipcode = Int16(zipcode) ?? 0
+        self.latitude = Double(latitude) ?? 0.0
         self.identifier = identifier
     }
 }

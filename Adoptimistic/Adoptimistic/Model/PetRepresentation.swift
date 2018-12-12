@@ -23,7 +23,7 @@ class PetRepresentation: NSObject, Decodable{
     let shelterId: String
     let shelterPetId: String?
     let size: String //Size Type
-    let shelter: ShelterRepresentation?
+    var shelter: ShelterRepresentation?
     
     enum CodingKeys: String, CodingKey {
         case options

@@ -45,7 +45,14 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate {
                 return
             }
             
-            self.petNearbyResults = petResults
+            guard let petResults = petResults else { return }
+            
+            for pet in petResults {
+                PetfinderClient.shared.findShelter(byID: pet.shelterId, completion: { (shelterRep, error) in
+                    pet.shelter = shelterRep
+                    self.mapView.addAnnotation(pet)
+                })
+            }
         }
     }
     
@@ -53,8 +60,7 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate {
     
     private var petNearbyResults: [PetRepresentation]? {
         didSet {
-            //fetch shelter rep for each pet rep and add to pet rep
-            //then add annotations
+            
         }
     }
     
