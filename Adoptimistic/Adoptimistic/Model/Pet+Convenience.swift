@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension Pet {
-    @discardableResult convenience init(petRep: PetRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init(petRep: PetRepresentation, notes: String? = nil, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
         self.age = petRep.age
@@ -27,6 +27,7 @@ extension Pet {
         self.shelterId = petRep.shelterId
         self.shelterPetId = petRep.shelterPetId
         self.size = petRep.size
+        self.notes = notes
     }
 }
 
