@@ -50,7 +50,7 @@ struct ShelterRepresentation: Decodable {
         let state = try stateContainer.decode(String.self, forKey: .t)
         
         let address1Container = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .address1)
-        let address1 = try address1Container.decode(String.self, forKey: .t)
+        let address1 = try address1Container.decodeIfPresent(String.self, forKey: .t) ?? ""
         let address2Container = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .address2)
         let address2 = try address2Container.decodeIfPresent(String.self, forKey: .t) ?? ""
         let address = address1 + " " + address2

@@ -51,7 +51,13 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
                     return
                 }
                 
+                guard let petResults = petResults else { return }
+                
                 self.petSearchResults = petResults
+                
+//                if let first = petResults.first {
+//                    self.petController?.addPetToFavorites(petRep: first)
+//                }
             }
         } else {
             //more details
@@ -82,8 +88,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetResultCell", for: indexPath) as?  PetResultCollectionViewCell ?? PetResultCollectionViewCell()
         
         let pet = petSearchResults?[indexPath.row]
-        cell.pet = pet
-        cell.delegate = self
+        cell.petRep = pet
         
         return cell
     }

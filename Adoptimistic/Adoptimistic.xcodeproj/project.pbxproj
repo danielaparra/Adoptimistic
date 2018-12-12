@@ -24,7 +24,6 @@
 		7BDC846621C036C1006AF641 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846521C036C1006AF641 /* FavoritesCollectionViewController.swift */; };
 		7BDC846821C036E0006AF641 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846721C036E0006AF641 /* PetDetailViewController.swift */; };
 		7BDC846A21C0372C006AF641 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846921C0372C006AF641 /* MainTabBarViewController.swift */; };
-		7BDC846C21C0376E006AF641 /* TransitionalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846B21C0376E006AF641 /* TransitionalNavigationController.swift */; };
 		7BDC847021C03803006AF641 /* PetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC846F21C03803006AF641 /* PetController.swift */; };
 		7BDC847221C03832006AF641 /* PetfinderClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847121C03832006AF641 /* PetfinderClient.swift */; };
 		7BDC847421C04CCC006AF641 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847321C04CCC006AF641 /* HTTPMethod.swift */; };
@@ -53,7 +52,6 @@
 		7BDC846521C036C1006AF641 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		7BDC846721C036E0006AF641 /* PetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
 		7BDC846921C0372C006AF641 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		7BDC846B21C0376E006AF641 /* TransitionalNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionalNavigationController.swift; sourceTree = "<group>"; };
 		7BDC846F21C03803006AF641 /* PetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetController.swift; sourceTree = "<group>"; };
 		7BDC847121C03832006AF641 /* PetfinderClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetfinderClient.swift; sourceTree = "<group>"; };
 		7BDC847321C04CCC006AF641 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				7BDC846521C036C1006AF641 /* FavoritesCollectionViewController.swift */,
 				7BDC846721C036E0006AF641 /* PetDetailViewController.swift */,
 				7BDC846921C0372C006AF641 /* MainTabBarViewController.swift */,
-				7BDC846B21C0376E006AF641 /* TransitionalNavigationController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -261,7 +258,6 @@
 				7BDC845F21C00768006AF641 /* ShelterRepresentation.swift in Sources */,
 				7BDC846821C036E0006AF641 /* PetDetailViewController.swift in Sources */,
 				7BDC845521BF5056006AF641 /* CoreDataStack.swift in Sources */,
-				7BDC846C21C0376E006AF641 /* TransitionalNavigationController.swift in Sources */,
 				7BDC846421C036A0006AF641 /* MapSearchViewController.swift in Sources */,
 				7BDC845921BF58ED006AF641 /* PetRepresentation.swift in Sources */,
 				7BDC846A21C0372C006AF641 /* MainTabBarViewController.swift in Sources */,

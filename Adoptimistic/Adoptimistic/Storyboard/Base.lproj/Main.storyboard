@@ -14,8 +14,8 @@
         <!--Find Pets-->
         <scene sceneID="O9s-pG-WHx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LlK-yr-gLY" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Find Pets" selectedImage="Search2Tab" id="hbF-5N-KJF"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LlK-yr-gLY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Find Pets" image="Search2Tab" selectedImage="Search2Tab" id="hbF-5N-KJF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3MQ-v2-fT1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -30,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="120.8" y="167.76611694152925"/>
         </scene>
-        <!--Map Search View Controller-->
+        <!--Adoptable pets near you-->
         <scene sceneID="v2Y-hQ-5An">
             <objects>
                 <viewController id="4FC-4W-lcq" customClass="MapSearchViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,17 +51,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kd9-YW-GSG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="33b-Ii-IEF"/>
+                    <navigationItem key="navigationItem" title="Adoptable pets near you" id="J78-VB-SK1"/>
                     <connections>
                         <outlet property="mapView" destination="agR-11-Bn3" id="Gws-vN-2Fi"/>
-                        <segue destination="fDO-iY-peH" kind="show" id="QXc-zb-Peq"/>
+                        <segue destination="fDO-iY-peH" kind="show" identifier="ViewPetNearby" id="QXc-zb-Peq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rC8-fe-lTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="905" y="897"/>
         </scene>
-        <!--Pet Detail View Controller-->
+        <!--About-->
         <scene sceneID="2pB-Sh-bTh">
             <objects>
                 <viewController id="fDO-iY-peH" customClass="PetDetailViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,7 +69,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rno-dP-xTG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PhotoLoading" translatesAutoresizingMaskIntoConstraints="NO" id="Rno-dP-xTG">
                                 <rect key="frame" x="67" y="87" width="240" height="246"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaF-Le-lTv">
-                                <rect key="frame" x="16" y="380" width="46" height="21"/>
+                                <rect key="frame" x="16" y="380" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -135,7 +135,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vw-Et-zaQ">
-                                <rect key="frame" x="16" y="545" width="46" height="21"/>
+                                <rect key="frame" x="16" y="545" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -150,6 +150,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nFr-G1-GFQ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="About" id="Cjv-H7-irn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HN2-tV-NgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="-722" y="545"/>
         </scene>
-        <!--Pet Search Collection View Controller-->
+        <!--Search for adoptable pets-->
         <scene sceneID="fpa-I6-09B">
             <objects>
                 <viewController id="8Pl-yH-sHD" customClass="PetSearchCollectionViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
@@ -183,7 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-LW-G2c">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-nB-RDl">
                                         <rect key="frame" x="93" y="0.0" width="189" height="30"/>
@@ -220,7 +221,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0C-cm-vtp">
-                                        <rect key="frame" x="124.5" y="80" width="126" height="39"/>
+                                        <rect key="frame" x="124.5" y="80" width="126" height="31"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Find my future pet">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -230,7 +231,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eT-7m-U9G">
-                                        <rect key="frame" x="147" y="129" width="81" height="27"/>
+                                        <rect key="frame" x="147" y="121" width="81" height="27"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <state key="normal" title="+ more details"/>
                                         <connections>
@@ -238,7 +239,7 @@
                                         </connections>
                                     </button>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b0J-tw-2t0">
-                                        <rect key="frame" x="-2.5" y="161" width="380" height="16"/>
+                                        <rect key="frame" x="-2.5" y="153" width="380" height="16"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="49J-cz-gES">
                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="0.0"/>
@@ -313,7 +314,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OYW-U1-4Z8">
-                                        <rect key="frame" x="0.0" y="166" width="375" height="388"/>
+                                        <rect key="frame" x="0.0" y="158" width="375" height="388"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="LXZ-3Z-n3D">
                                             <size key="itemSize" width="165" height="210"/>
@@ -365,14 +366,23 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgD-Is-sFJ">
+                                                                            <rect key="frame" x="8" y="29" width="28.5" height="12"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="rdF-1q-m2n" firstAttribute="top" secondItem="6nC-cK-kkO" secondAttribute="top" constant="8" id="5x8-IC-hXO"/>
+                                                                        <constraint firstItem="lYJ-Ln-kij" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rgD-Is-sFJ" secondAttribute="trailing" constant="8" symbolic="YES" id="8pi-2k-5oP"/>
                                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rdF-1q-m2n" secondAttribute="trailing" constant="20" symbolic="YES" id="L5z-3W-grU"/>
+                                                                        <constraint firstItem="rgD-Is-sFJ" firstAttribute="leading" secondItem="6nC-cK-kkO" secondAttribute="leading" constant="8" id="cir-Yg-69b"/>
                                                                         <constraint firstAttribute="trailing" secondItem="lYJ-Ln-kij" secondAttribute="trailing" constant="4" id="epr-65-OMX"/>
                                                                         <constraint firstAttribute="bottom" secondItem="lYJ-Ln-kij" secondAttribute="bottom" constant="4" id="jRN-hS-Nf7"/>
                                                                         <constraint firstItem="rdF-1q-m2n" firstAttribute="leading" secondItem="6nC-cK-kkO" secondAttribute="leading" constant="8" id="kD7-EZ-BEV"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="rgD-Is-sFJ" secondAttribute="bottom" constant="4" id="x7M-Sz-P4t"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -402,11 +412,13 @@
                                                 </constraints>
                                                 <size key="customSize" width="165" height="210"/>
                                                 <connections>
+                                                    <outlet property="breedLabel" destination="rgD-Is-sFJ" id="BBJ-5c-zi0"/>
                                                     <outlet property="favoriteButton" destination="aZc-Tx-lwO" id="sqm-Ve-zCA"/>
                                                     <outlet property="milesLabel" destination="r0e-zx-0Gn" id="nWu-DC-jFj"/>
                                                     <outlet property="nameLabel" destination="rdF-1q-m2n" id="JgS-xV-8Bw"/>
                                                     <outlet property="petDetailsView" destination="6nC-cK-kkO" id="Rkr-sS-xfr"/>
                                                     <outlet property="photoImageView" destination="gQ6-AR-ixY" id="FCf-mM-SUc"/>
+                                                    <segue destination="fDO-iY-peH" kind="show" identifier="ViewPet" id="qDR-WG-PKq"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -423,11 +435,11 @@
                             <constraint firstItem="1Y9-Pz-w6W" firstAttribute="bottom" secondItem="lWn-LW-G2c" secondAttribute="bottom" id="EjJ-fD-usY"/>
                             <constraint firstItem="lWn-LW-G2c" firstAttribute="leading" secondItem="Qhb-uG-DZn" secondAttribute="leading" id="MCu-jo-jDi"/>
                             <constraint firstItem="1Y9-Pz-w6W" firstAttribute="trailing" secondItem="lWn-LW-G2c" secondAttribute="trailing" id="Owh-wL-Wcp"/>
-                            <constraint firstItem="lWn-LW-G2c" firstAttribute="top" secondItem="1Y9-Pz-w6W" secondAttribute="top" id="uZy-8x-Jhh"/>
+                            <constraint firstItem="lWn-LW-G2c" firstAttribute="top" secondItem="1Y9-Pz-w6W" secondAttribute="top" constant="8" id="uZy-8x-Jhh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Y9-Pz-w6W"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lhp-bD-H1u"/>
+                    <navigationItem key="navigationItem" title="Search for adoptable pets" id="g6q-nT-Ili"/>
                     <connections>
                         <outlet property="animalTextField" destination="Ksq-4f-rkj" id="LXf-3O-w6g"/>
                         <outlet property="collectionView" destination="OYW-U1-4Z8" id="wEI-m0-Big"/>
@@ -443,10 +455,8 @@
         <!--Pets Nearby-->
         <scene sceneID="Td7-1H-3FD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g5f-Qz-WWf" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pets Nearby" selectedImage="LocationTab" id="HJD-iV-3RI">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g5f-Qz-WWf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pets Nearby" image="LocationTab" selectedImage="LocationTab" id="HJD-iV-3RI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ego-3Y-6cs">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -461,7 +471,7 @@
             </objects>
             <point key="canvasLocation" x="120.8" y="897.30134932533736"/>
         </scene>
-        <!--Favorites Collection View Controller-->
+        <!--My Favorites-->
         <scene sceneID="qp3-gS-Yxf">
             <objects>
                 <collectionViewController id="otv-ES-Hja" customClass="FavoritesCollectionViewController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
@@ -476,40 +486,102 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PetCell" id="5Qf-Y8-GeX">
-                                <rect key="frame" x="10" y="10" width="165" height="230"/>
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" reuseIdentifier="PetFaveCell" id="yB8-SF-Qgq" customClass="PetResultCollectionViewCell" customModule="Adoptimistic" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="165" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="165" height="230"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="165" height="210"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="165" placeholderIntrinsicHeight="210" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hoi-UP-GlZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="165" height="210"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoLoading" translatesAutoresizingMaskIntoConstraints="NO" id="PO4-on-NSh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="PO4-on-NSh" secondAttribute="height" multiplier="1:1" id="ddQ-FP-W2P"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXr-OY-8gD">
+                                                    <rect key="frame" x="0.0" y="165" width="165" height="45"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AVs-QT-NEM">
+                                                            <rect key="frame" x="86.5" y="28" width="74.5" height="13"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="Gr6-fa-6dl">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="13" height="13"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="13" id="MLp-qs-UNv"/>
+                                                                        <constraint firstAttribute="height" constant="13" id="Tko-sn-v2X"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No. of miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ3-wK-Yno">
+                                                                    <rect key="frame" x="17" y="0.0" width="57.5" height="13"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNo-n1-SPe">
+                                                            <rect key="frame" x="8" y="8" width="45" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-e5-lZy">
+                                                            <rect key="frame" x="8" y="29" width="28.5" height="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RNo-n1-SPe" secondAttribute="trailing" constant="20" symbolic="YES" id="MCo-Ld-C4P"/>
+                                                        <constraint firstItem="RNo-n1-SPe" firstAttribute="top" secondItem="PXr-OY-8gD" secondAttribute="top" constant="8" id="VKI-DJ-pfz"/>
+                                                        <constraint firstItem="AVs-QT-NEM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wrl-e5-lZy" secondAttribute="trailing" constant="8" symbolic="YES" id="XU2-Kd-3gL"/>
+                                                        <constraint firstAttribute="bottom" secondItem="wrl-e5-lZy" secondAttribute="bottom" constant="4" id="YPF-MM-ilS"/>
+                                                        <constraint firstItem="RNo-n1-SPe" firstAttribute="leading" secondItem="PXr-OY-8gD" secondAttribute="leading" constant="8" id="hW2-ug-Hg6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="AVs-QT-NEM" secondAttribute="bottom" constant="4" id="l3R-B7-6tJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AVs-QT-NEM" secondAttribute="trailing" constant="4" id="qI3-u5-bti"/>
+                                                        <constraint firstItem="wrl-e5-lZy" firstAttribute="leading" secondItem="PXr-OY-8gD" secondAttribute="leading" constant="8" id="xvS-Yh-iLw"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="165" id="ET1-g9-rsM"/>
+                                                <constraint firstAttribute="height" constant="210" id="Heu-Nf-Owb"/>
+                                                <constraint firstItem="PO4-on-NSh" firstAttribute="width" secondItem="hoi-UP-GlZ" secondAttribute="width" id="TEJ-KO-Ncy"/>
+                                            </constraints>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWI-86-dwE">
+                                            <rect key="frame" x="127" y="8" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="abT-jh-t5m"/>
+                                                <constraint firstAttribute="width" constant="30" id="mUu-kZ-xR1"/>
+                                            </constraints>
+                                            <state key="normal" image="Favorite"/>
+                                        </button>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="lWI-86-dwE" firstAttribute="top" secondItem="yB8-SF-Qgq" secondAttribute="top" constant="8" id="BvF-NL-97q"/>
+                                    <constraint firstItem="hoi-UP-GlZ" firstAttribute="top" secondItem="yB8-SF-Qgq" secondAttribute="top" id="LTc-hI-ARM"/>
+                                    <constraint firstAttribute="trailing" secondItem="hoi-UP-GlZ" secondAttribute="trailing" id="RBv-Mm-q4x"/>
+                                    <constraint firstItem="hoi-UP-GlZ" firstAttribute="leading" secondItem="yB8-SF-Qgq" secondAttribute="leading" id="RfA-6J-7N8"/>
+                                    <constraint firstAttribute="trailing" secondItem="lWI-86-dwE" secondAttribute="trailing" constant="8" id="Y7a-8M-KSK"/>
+                                    <constraint firstAttribute="bottom" secondItem="hoi-UP-GlZ" secondAttribute="bottom" id="vtB-dc-dB8"/>
+                                </constraints>
+                                <size key="customSize" width="165" height="210"/>
                                 <connections>
-                                    <segue destination="fDO-iY-peH" kind="show" id="GF7-z2-w6b"/>
+                                    <outlet property="favoriteButton" destination="lWI-86-dwE" id="DNZ-D0-LbX"/>
+                                    <outlet property="milesLabel" destination="AZ3-wK-Yno" id="wEk-Nh-K6G"/>
+                                    <outlet property="nameLabel" destination="RNo-n1-SPe" id="3cM-TG-L9K"/>
+                                    <outlet property="petDetailsView" destination="PXr-OY-8gD" id="zZN-fL-04q"/>
+                                    <outlet property="photoImageView" destination="PO4-on-NSh" id="iSs-qP-TYm"/>
+                                    <segue destination="fDO-iY-peH" kind="show" identifier="ViewFavePet" id="VVz-nq-sWp"/>
                                 </connections>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eId-CS-1yW">
-                                <rect key="frame" x="200" y="10" width="165" height="230"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="165" height="230"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IKH-QM-R0N">
-                                <rect key="frame" x="10" y="250" width="165" height="230"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="165" height="230"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XkH-Cb-hSh">
-                                <rect key="frame" x="200" y="250" width="165" height="230"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="165" height="230"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -517,17 +589,17 @@
                             <outlet property="delegate" destination="otv-ES-Hja" id="usU-kS-FJs"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="tx2-Zm-4KZ"/>
+                    <navigationItem key="navigationItem" title="My Favorites" id="iCM-dD-6hK"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9X-hW-n7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="905" y="1645"/>
+            <point key="canvasLocation" x="905" y="1800"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="9hu-vW-R5w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ser-Ta-Ojh" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" selectedImage="FavoriteTab" id="baQ-7c-l2v"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ser-Ta-Ojh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="FavoriteTab" selectedImage="FavoriteTab" id="baQ-7c-l2v"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jXA-xL-St8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -544,14 +616,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FavoriteTab" width="32" height="32"/>
+        <image name="Favorite" width="64" height="64"/>
+        <image name="FavoriteTab" width="21" height="21"/>
         <image name="Location" width="64" height="64"/>
-        <image name="LocationTab" width="32" height="32"/>
+        <image name="LocationTab" width="21" height="21"/>
         <image name="PhotoLoading" width="225" height="225"/>
-        <image name="Search2Tab" width="32" height="32"/>
+        <image name="Search2Tab" width="21" height="21"/>
         <image name="Unfavorite" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GF7-z2-w6b"/>
+        <segue reference="VVz-nq-sWp"/>
     </inferredMetricsTieBreakers>
 </document>

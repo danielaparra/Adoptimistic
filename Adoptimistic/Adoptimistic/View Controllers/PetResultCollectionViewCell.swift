@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PetResultCellDelegate {
+protocol PetResultCellDelegate: class {
     func didClickFavoriteButton(for cell: PetResultCollectionViewCell)
 }
 
@@ -16,25 +16,38 @@ class PetResultCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Private Methods
     
-    private func updateViews() {
+    private func updatePetRepViews() {
+        guard let petRep = petRep else { return }
+        
+        nameLabel.text = petRep.name
+    }
+    
+    private func updatePetViews() {
         guard let pet = pet else { return }
         
         nameLabel.text = pet.name
+        //breedLabel.text = pet.breeds?.first
     }
     
     // MARK: - Properties
     
-    var pet: PetRepresentation? {
+    var petRep: PetRepresentation? {
         didSet {
-            updateViews()
+            updatePetRepViews()
+        }
+    }
+    var pet: Pet? {
+        didSet {
+            updatePetViews()
         }
     }
     
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var breedLabel: UILabel!
     @IBOutlet weak var milesLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var petDetailsView: UIView!
     
-    weak var delegate: PetSearchCollectionViewController?
+    weak var delegate: PetResultCellDelegate?
 }
