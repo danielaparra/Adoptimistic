@@ -13,7 +13,7 @@ class PetfinderClient {
     static let shared = PetfinderClient()
     
     //Search for pets from location and other optional parameters (pet.find)
-    func findPetsWith(location: String, animal: AnimalType? = nil, breed: String? = nil, size: SizeType? = nil, sex: GenderType? = nil, age: AgeType? = nil, offset: String? = nil, completion: @escaping ([PetRepresentation]?, Error?) -> Void ) {
+    func findPets(near location: String, animal: AnimalType? = nil, breed: String? = nil, size: SizeType? = nil, sex: GenderType? = nil, age: AgeType? = nil, offset: String? = nil, completion: @escaping ([PetRepresentation]?, Error?) -> Void ) {
         
         let url = baseURL.appendingPathComponent("pet").appendingPathExtension("find")
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
@@ -33,10 +33,10 @@ class PetfinderClient {
             parameters["offset"] = offset
         }
         
-        guard let requestURL = urlComponents?.url else { return }
-        
         let queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponents?.queryItems = queryItems
+        
+        guard let requestURL = urlComponents?.url else { return }
         
         var request = URLRequest(url: requestURL)
         request.httpMethod  = HTTPMethod.get.rawValue
@@ -52,10 +52,6 @@ class PetfinderClient {
                 NSLog("No data returned by data task")
                 completion(nil, NSError())
                 return
-            }
-            
-            if let json = String(data: data, encoding: .utf8) {
-                print(json)
             }
             
             do {
@@ -88,10 +84,10 @@ class PetfinderClient {
             parameters["shelterId"] = shelterId
         }
         
-        guard let requestURL = urlComponents?.url else { return }
-        
         let queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponents?.queryItems = queryItems
+        
+        guard let requestURL = urlComponents?.url else { return }
         
         var request = URLRequest(url: requestURL)
         request.httpMethod  = HTTPMethod.get.rawValue
@@ -131,10 +127,10 @@ class PetfinderClient {
         
         let parameters = ["key": apiKey, "format": "json", "id": id]
         
-        guard let requestURL = urlComponents?.url else { return }
-        
         let queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponents?.queryItems = queryItems
+        
+        guard let requestURL = urlComponents?.url else { return }
         
         var request = URLRequest(url: requestURL)
         request.httpMethod  = HTTPMethod.get.rawValue
@@ -178,10 +174,10 @@ class PetfinderClient {
             parameters["offset"] = offset
         }
         
-        guard let requestURL = urlComponents?.url else { return }
-        
         let queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponents?.queryItems = queryItems
+        
+        guard let requestURL = urlComponents?.url else { return }
         
         var request = URLRequest(url: requestURL)
         request.httpMethod  = HTTPMethod.get.rawValue
@@ -221,10 +217,10 @@ class PetfinderClient {
         
         let parameters = ["key": apiKey, "format": "json", "animal": animal.rawValue]
         
-        guard let requestURL = urlComponents?.url else { return }
-        
         let queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponents?.queryItems = queryItems
+        
+        guard let requestURL = urlComponents?.url else { return }
         
         var request = URLRequest(url: requestURL)
         request.httpMethod  = HTTPMethod.get.rawValue

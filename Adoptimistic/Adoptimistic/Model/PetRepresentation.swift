@@ -12,9 +12,9 @@ struct PetRepresentation: Decodable, Equatable {
     let age: String //Age Type
     let animal: String //Animal Type
     let breeds: [String]
-    let description: String
+    let description: String?
     let identifier: Int16
-    let lastUpdate: Date
+    let lastUpdate: String
     let mix: Bool
     let name: String
     let options: [String]?
@@ -65,7 +65,7 @@ struct PetRepresentation: Decodable, Equatable {
         //media photos
         
         let idContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .id)
-        let identifier = try idContainer.decode(Int16.self, forKey: .t)
+        let identifierString = try idContainer.decode(String.self, forKey: .t)
         let shelterPetIdContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .shelterPetId)
         let shelterPetId = try shelterPetIdContainer.decodeIfPresent(String.self, forKey: .t) ?? nil
         
@@ -76,14 +76,14 @@ struct PetRepresentation: Decodable, Equatable {
         let sexContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .sex)
         let sex = try sexContainer.decode(String.self, forKey: .t)
         let descriptionContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .description)
-        let description = try descriptionContainer.decode(String.self, forKey: .t)
+        let description = try descriptionContainer.decodeIfPresent(String.self, forKey: .t)
         let mixContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .mix)
         let mixString = try mixContainer.decode(String.self, forKey: .t)
         let mix: Bool = mixString == "yes" ? true : false
         let shelterIdContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .shelterId)
         let shelterId = try shelterIdContainer.decode(String.self, forKey: .t)
         let lastUpdateContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .lastUpdate)
-        let lastUpdate = try lastUpdateContainer.decode(Date.self, forKey: .t)
+        let lastUpdate = try lastUpdateContainer.decode(String.self, forKey: .t)
         let animalContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .animal)
         let animal = try animalContainer.decode(String.self, forKey: .t)
         
@@ -92,7 +92,7 @@ struct PetRepresentation: Decodable, Equatable {
         self.size = size
         //photos
         self.photos = [""]
-        self.identifier = identifier
+        self.identifier = Int16(identifierString) ?? 0 //Should never be zero.
         self.shelterPetId = shelterPetId
         //breeds
         self.breeds = [""]
@@ -128,7 +128,7 @@ struct PetRandomResult: Decodable {
 
 struct PetsFindResult: Decodable {
     let pets: [PetRepresentation]
-    let lastOffset: Int
+    let lastOffset: String
     
     enum CodingKeys: String, CodingKey {
         case petfinder
@@ -147,9 +147,15 @@ struct PetsFindResult: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let petfinderContainer = try container.nestedContainer(keyedBy: PetfinderCodingKeys.self, forKey: .petfinder)
         let lastOffsetContainer = try petfinderContainer.nestedContainer(keyedBy: TCodingKey.self, forKey: .lastOffset)
-        let lastOffset = try lastOffsetContainer.decode(Int.self, forKey: .t)
+        let lastOffset = try lastOffsetContainer.decode(String.self, forKey: .t)
         let petsContainer = try petfinderContainer.nestedContainer(keyedBy: PetsCodingKeys.self, forKey: .pets)
-        let pets = try petsContainer.decode([PetRepresentation].self, forKey: .pet)
+        var petContainer = try petsContainer.nestedUnkeyedContainer(forKey: .pet)
+        var pets = [PetRepresentation]()
+        
+        while !petContainer.isAtEnd {
+            let pet = try petContainer.decode(PetRepresentation.self)
+            pets.append(pet)
+        }
         
         self.lastOffset = lastOffset
         self.pets = pets

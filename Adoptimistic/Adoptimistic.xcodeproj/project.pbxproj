@@ -29,6 +29,7 @@
 		7BDC847221C03832006AF641 /* PetfinderClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847121C03832006AF641 /* PetfinderClient.swift */; };
 		7BDC847421C04CCC006AF641 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847321C04CCC006AF641 /* HTTPMethod.swift */; };
 		7BDC847621C059BB006AF641 /* BreedResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847521C059BB006AF641 /* BreedResults.swift */; };
+		7BDC847821C0B46A006AF641 /* PetResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847721C0B46A006AF641 /* PetResultCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		7BDC847121C03832006AF641 /* PetfinderClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetfinderClient.swift; sourceTree = "<group>"; };
 		7BDC847321C04CCC006AF641 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		7BDC847521C059BB006AF641 /* BreedResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedResults.swift; sourceTree = "<group>"; };
+		7BDC847721C0B46A006AF641 /* PetResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetResultCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				7BDC846121C03679006AF641 /* PetSearchCollectionViewController.swift */,
+				7BDC847721C0B46A006AF641 /* PetResultCollectionViewCell.swift */,
 				7BDC846321C036A0006AF641 /* MapSearchViewController.swift */,
 				7BDC846521C036C1006AF641 /* FavoritesCollectionViewController.swift */,
 				7BDC846721C036E0006AF641 /* PetDetailViewController.swift */,
@@ -266,6 +269,7 @@
 				7BDC845721BF5088006AF641 /* Pet+Convenience.swift in Sources */,
 				7BDC843521BEFED3006AF641 /* AppDelegate.swift in Sources */,
 				7BDC845121BF1D18006AF641 /* Adoptimistic.xcdatamodeld in Sources */,
+				7BDC847821C0B46A006AF641 /* PetResultCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

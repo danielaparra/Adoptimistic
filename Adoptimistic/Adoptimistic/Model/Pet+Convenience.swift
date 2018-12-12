@@ -17,7 +17,7 @@ extension Pet {
         self.animal = petRep.animal
         self.breeds = petRep.breeds
         self.identifier = petRep.identifier
-        self.lastUpdate = petRep.lastUpdate
+        self.lastUpdate = dateFormatter.date(from: petRep.lastUpdate)
         self.mix = petRep.mix
         self.name = petRep.name
         self.options = petRep.options
@@ -29,3 +29,8 @@ extension Pet {
         self.size = petRep.size
     }
 }
+
+let dateFormatter: DateFormatter = {
+    let df = DateFormatter()
+    return df
+}()
