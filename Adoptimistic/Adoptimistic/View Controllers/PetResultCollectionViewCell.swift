@@ -14,10 +14,6 @@ protocol PetResultCellDelegate {
 
 class PetResultCollectionViewCell: UICollectionViewCell {
     
-    @IBAction func pressFavorite(_ sender: Any) {
-        
-    }
-    
     // MARK: - Private Methods
     
     private func updateViews() {

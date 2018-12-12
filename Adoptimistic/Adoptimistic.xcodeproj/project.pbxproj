@@ -30,6 +30,7 @@
 		7BDC847421C04CCC006AF641 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847321C04CCC006AF641 /* HTTPMethod.swift */; };
 		7BDC847621C059BB006AF641 /* BreedResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847521C059BB006AF641 /* BreedResults.swift */; };
 		7BDC847821C0B46A006AF641 /* PetResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847721C0B46A006AF641 /* PetResultCollectionViewCell.swift */; };
+		7BDC847A21C0CA58006AF641 /* PetRepresentation+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847921C0CA58006AF641 /* PetRepresentation+Mapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		7BDC847321C04CCC006AF641 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		7BDC847521C059BB006AF641 /* BreedResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedResults.swift; sourceTree = "<group>"; };
 		7BDC847721C0B46A006AF641 /* PetResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		7BDC847921C0CA58006AF641 /* PetRepresentation+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetRepresentation+Mapping.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				7BDC845421BF5056006AF641 /* CoreDataStack.swift */,
 				7BDC845621BF5088006AF641 /* Pet+Convenience.swift */,
 				7BDC845821BF58ED006AF641 /* PetRepresentation.swift */,
+				7BDC847921C0CA58006AF641 /* PetRepresentation+Mapping.swift */,
 				7BDC845C21C0073C006AF641 /* Shelter+Convenience.swift */,
 				7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */,
 				7BDC847521C059BB006AF641 /* BreedResults.swift */,
@@ -268,6 +271,7 @@
 				7BDC845B21BF5FCC006AF641 /* PetfinderEnums.swift in Sources */,
 				7BDC845721BF5088006AF641 /* Pet+Convenience.swift in Sources */,
 				7BDC843521BEFED3006AF641 /* AppDelegate.swift in Sources */,
+				7BDC847A21C0CA58006AF641 /* PetRepresentation+Mapping.swift in Sources */,
 				7BDC845121BF1D18006AF641 /* Adoptimistic.xcdatamodeld in Sources */,
 				7BDC847821C0B46A006AF641 /* PetResultCollectionViewCell.swift in Sources */,
 			);

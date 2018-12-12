@@ -53,7 +53,8 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate {
     
     private var petNearbyResults: [PetRepresentation]? {
         didSet {
-            //add annotations
+            //fetch shelter rep for each pet rep and add to pet rep
+            //then add annotations
         }
     }
     

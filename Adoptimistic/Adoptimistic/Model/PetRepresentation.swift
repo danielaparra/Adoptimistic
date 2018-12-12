@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct PetRepresentation: Decodable, Equatable {
+class PetRepresentation: NSObject, Decodable{
     let age: String //Age Type
     let animal: String //Animal Type
     let breeds: [String]
-    let description: String?
+    let petDescription: String?
     let identifier: Int16
     let lastUpdate: String
     let mix: Bool
@@ -23,6 +23,7 @@ struct PetRepresentation: Decodable, Equatable {
     let shelterId: String
     let shelterPetId: String?
     let size: String //Size Type
+    let shelter: ShelterRepresentation?
     
     enum CodingKeys: String, CodingKey {
         case options
@@ -45,7 +46,7 @@ struct PetRepresentation: Decodable, Equatable {
         case option
     }
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 //        let optionsContainer = try container.nestedContainer(keyedBy: OptionsCodingKeys.self, forKey: .options)
 //        var optionContainer = try optionsContainer.nestedUnkeyedContainer(forKey: .option)
@@ -98,11 +99,12 @@ struct PetRepresentation: Decodable, Equatable {
         self.breeds = [""]
         self.name = name
         self.sex = sex
-        self.description = description
+        self.petDescription = description
         self.mix = mix
         self.shelterId = shelterId
         self.lastUpdate = lastUpdate
         self.animal = animal
+        self.shelter = nil
     }
 }
 
