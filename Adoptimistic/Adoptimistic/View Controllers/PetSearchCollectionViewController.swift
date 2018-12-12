@@ -8,13 +8,15 @@
 
 import UIKit
 
-class PetSearchCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class PetSearchCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
+    
     @IBAction func searchForPets(_ sender: Any) {
         
         if moreDetailsIsHidden {
@@ -78,9 +80,11 @@ class PetSearchCollectionViewController: UIViewController, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetResultCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetResultCell", for: indexPath) as?  PetResultCollectionViewCell ?? PetResultCollectionViewCell()
         
-        //Configure cell
+        let pet = petSearchResults?[indexPath.row]
+        cell.pet = pet
+        cell.delegate = self
         
         return cell
     }

@@ -11,11 +11,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Transitional Navigation Controller-->
+        <!--Find Pets-->
         <scene sceneID="O9s-pG-WHx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LlK-yr-gLY" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="hbF-5N-KJF"/>
+                    <tabBarItem key="tabBarItem" title="Find Pets" selectedImage="Search2Tab" id="hbF-5N-KJF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3MQ-v2-fT1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -53,6 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="33b-Ii-IEF"/>
                     <connections>
+                        <outlet property="mapView" destination="agR-11-Bn3" id="Gws-vN-2Fi"/>
                         <segue destination="fDO-iY-peH" kind="show" id="QXc-zb-Peq"/>
                     </connections>
                 </viewController>
@@ -164,8 +165,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="g5f-Qz-WWf" kind="relationship" relationship="viewControllers" id="8yM-yz-u1A"/>
                         <segue destination="LlK-yr-gLY" kind="relationship" relationship="viewControllers" id="aeV-XU-oUQ"/>
+                        <segue destination="g5f-Qz-WWf" kind="relationship" relationship="viewControllers" id="8yM-yz-u1A"/>
                         <segue destination="Ser-Ta-Ojh" kind="relationship" relationship="viewControllers" id="nf5-eS-Ai8"/>
                     </connections>
                 </tabBarController>
@@ -181,20 +182,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-LW-G2c">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-LW-G2c">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-nB-RDl">
-                                        <rect key="frame" x="93" y="0.0" width="189" height="20.5"/>
+                                        <rect key="frame" x="93" y="0.0" width="189" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I live near" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3B-Ey-Sfz">
-                                                <rect key="frame" x="0.0" y="0.0" width="72.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="72.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your zipcode:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgq-e1-OmZ">
-                                                <rect key="frame" x="80.5" y="0.0" width="108.5" height="20.5"/>
+                                                <rect key="frame" x="80.5" y="0.0" width="108.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="postal-code"/>
@@ -202,16 +203,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xc8-l5-Lby">
-                                        <rect key="frame" x="64.5" y="28.5" width="246" height="20.5"/>
+                                        <rect key="frame" x="64.5" y="40" width="246" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm looking for a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhf-Jv-4o6">
-                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type of animal:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ksq-4f-rkj">
-                                                <rect key="frame" x="129.5" y="0.0" width="116.5" height="20.5"/>
+                                                <rect key="frame" x="129.5" y="0.0" width="116.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -219,7 +220,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0C-cm-vtp">
-                                        <rect key="frame" x="124.5" y="57" width="126" height="30"/>
+                                        <rect key="frame" x="124.5" y="80" width="126" height="39"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Find my future pet">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -229,7 +230,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eT-7m-U9G">
-                                        <rect key="frame" x="147" y="95" width="81" height="27"/>
+                                        <rect key="frame" x="147" y="129" width="81" height="27"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <state key="normal" title="+ more details"/>
                                         <connections>
@@ -237,7 +238,7 @@
                                         </connections>
                                     </button>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b0J-tw-2t0">
-                                        <rect key="frame" x="-2.5" y="126" width="380" height="16"/>
+                                        <rect key="frame" x="-2.5" y="161" width="380" height="16"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="49J-cz-gES">
                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="0.0"/>
@@ -311,8 +312,8 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OYW-U1-4Z8">
-                                        <rect key="frame" x="0.0" y="130" width="375" height="386"/>
+                                    <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OYW-U1-4Z8">
+                                        <rect key="frame" x="0.0" y="166" width="375" height="388"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="LXZ-3Z-n3D">
                                             <size key="itemSize" width="165" height="210"/>
@@ -321,14 +322,14 @@
                                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="Az6-gT-V4P" customClass="PetResultCollectionViewCell" customModule="Adoptimistic" customModuleProvider="target">
+                                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" reuseIdentifier="PetResultCell" id="Az6-gT-V4P" customClass="PetResultCollectionViewCell" customModule="Adoptimistic" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="10" width="165" height="210"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="165" height="210"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dzb-iQ-6lM">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="165" placeholderIntrinsicHeight="210" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dzb-iQ-6lM">
                                                             <rect key="frame" x="0.0" y="0.0" width="165" height="210"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoLoading" translatesAutoresizingMaskIntoConstraints="NO" id="gQ6-AR-ixY">
@@ -368,6 +369,7 @@
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="rdF-1q-m2n" firstAttribute="top" secondItem="6nC-cK-kkO" secondAttribute="top" constant="8" id="5x8-IC-hXO"/>
+                                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rdF-1q-m2n" secondAttribute="trailing" constant="20" symbolic="YES" id="L5z-3W-grU"/>
                                                                         <constraint firstAttribute="trailing" secondItem="lYJ-Ln-kij" secondAttribute="trailing" constant="4" id="epr-65-OMX"/>
                                                                         <constraint firstAttribute="bottom" secondItem="lYJ-Ln-kij" secondAttribute="bottom" constant="4" id="jRN-hS-Nf7"/>
                                                                         <constraint firstItem="rdF-1q-m2n" firstAttribute="leading" secondItem="6nC-cK-kkO" secondAttribute="leading" constant="8" id="kD7-EZ-BEV"/>
@@ -386,7 +388,7 @@
                                                                 <constraint firstAttribute="height" constant="30" id="OF6-Ox-SpS"/>
                                                                 <constraint firstAttribute="width" constant="30" id="PPn-fB-Tvm"/>
                                                             </constraints>
-                                                            <state key="normal" image="Favorite"/>
+                                                            <state key="normal" image="Unfavorite"/>
                                                             <connections>
                                                                 <action selector="pressFavorite:" destination="sGf-uZ-iwQ" eventType="touchUpInside" id="HNJ-gH-k7W"/>
                                                             </connections>
@@ -416,13 +418,6 @@
                                             <outlet property="delegate" destination="8Pl-yH-sHD" id="6bk-Uo-L9o"/>
                                         </connections>
                                     </collectionView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44U-Hi-a07">
-                                        <rect key="frame" x="153" y="524" width="69" height="30"/>
-                                        <state key="normal" title="Find more"/>
-                                        <connections>
-                                            <action selector="findMorePets:" destination="8Pl-yH-sHD" eventType="touchUpInside" id="XTC-Cv-2m0"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -453,7 +448,9 @@
         <scene sceneID="Td7-1H-3FD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g5f-Qz-WWf" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pets Nearby" id="HJD-iV-3RI"/>
+                    <tabBarItem key="tabBarItem" title="Pets Nearby" selectedImage="LocationTab" id="HJD-iV-3RI">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ego-3Y-6cs">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -530,11 +527,11 @@
             </objects>
             <point key="canvasLocation" x="905" y="1645"/>
         </scene>
-        <!--Transitional Navigation Controller-->
+        <!--Favorites-->
         <scene sceneID="9hu-vW-R5w">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ser-Ta-Ojh" customClass="TransitionalNavigationController" customModule="Adoptimistic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="baQ-7c-l2v"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" selectedImage="FavoriteTab" id="baQ-7c-l2v"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jXA-xL-St8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -547,13 +544,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdO-ZF-51Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120.8" y="1644.8275862068967"/>
+            <point key="canvasLocation" x="121" y="1801"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Favorite" width="64" height="64"/>
+        <image name="FavoriteTab" width="32" height="32"/>
         <image name="Location" width="64" height="64"/>
+        <image name="LocationTab" width="32" height="32"/>
         <image name="PhotoLoading" width="225" height="225"/>
+        <image name="Search2Tab" width="32" height="32"/>
+        <image name="Unfavorite" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QXc-zb-Peq"/>

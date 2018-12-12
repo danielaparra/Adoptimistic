@@ -28,7 +28,11 @@ class PetResultCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    var pet: PetRepresentation?
+    var pet: PetRepresentation? {
+        didSet {
+            updateViews()
+        }
+    }
     
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
