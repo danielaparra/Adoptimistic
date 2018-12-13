@@ -7,8 +7,37 @@
 //
 
 import UIKit
+import CoreLocation
 
-class PetSearchCollectionViewController: UIViewController, PetControllerProtocol, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class PetSearchCollectionViewController: UIViewController, PetControllerProtocol, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate {
+    
+    @IBAction func getCurrentLocation(_ sender: Any) {
+        let geocoder = CLGeocoder()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
+        guard let latitude = locationManager.location?.coordinate.latitude,
+            let longitude = locationManager.location?.coordinate.longitude else { return }
+        
+        let userLocation = CLLocation(latitude: latitude, longitude: longitude)
+        geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
+            if let error = error {
+                NSLog("Error fetching placemark for user location: \(error)")
+                return
+            }
+            
+            guard let placemarks = placemarks else { return }
+            
+            let pm = placemarks.first
+            let zipcode = pm?.postalCode
+            self.zipcodeTextField.text = zipcode
+        }
+    }
     
     @IBAction func searchForPets(_ sender: Any) {
         
@@ -142,6 +171,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     private var sex: GenderType?
     private var age: AgeType?
     private var offset: String?
+    private var locationManager = CLLocationManager()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var zipcodeTextField: UITextField!

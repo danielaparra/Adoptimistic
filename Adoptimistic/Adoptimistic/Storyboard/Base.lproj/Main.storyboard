@@ -251,7 +251,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="546"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-nB-RDl">
-                                        <rect key="frame" x="93" y="0.0" width="189" height="30"/>
+                                        <rect key="frame" x="78.5" y="0.0" width="218" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I live near" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3B-Ey-Sfz">
                                                 <rect key="frame" x="0.0" y="0.0" width="72.5" height="30"/>
@@ -265,6 +265,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="postal-code"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJf-Ai-EKS">
+                                                <rect key="frame" x="197" y="0.0" width="21" height="30"/>
+                                                <state key="normal" image="CurrentLocation"/>
+                                                <connections>
+                                                    <action selector="getCurrentLocation:" destination="8Pl-yH-sHD" eventType="touchUpInside" id="CJG-eE-qCs"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xc8-l5-Lby">
@@ -693,6 +700,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CurrentLocation" width="21" height="21"/>
         <image name="Favorite" width="64" height="64"/>
         <image name="FavoriteTab" width="21" height="21"/>
         <image name="Location" width="64" height="64"/>
