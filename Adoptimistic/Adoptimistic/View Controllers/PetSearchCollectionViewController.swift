@@ -174,7 +174,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewPetResult" {
+        if segue.identifier == "ViewPet" {
             guard let destinationVC = segue.destination as? PetDetailViewController,
                 let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
             let petRep = petSearchResults?[indexPath.row]

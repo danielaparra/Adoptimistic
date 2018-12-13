@@ -590,7 +590,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="165" placeholderIntrinsicHeight="210" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hoi-UP-GlZ">
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="210"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoLoading" translatesAutoresizingMaskIntoConstraints="NO" id="PO4-on-NSh">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoLoading" translatesAutoresizingMaskIntoConstraints="NO" id="PO4-on-NSh">
                                                     <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="PO4-on-NSh" secondAttribute="height" multiplier="1:1" id="ddQ-FP-W2P"/>

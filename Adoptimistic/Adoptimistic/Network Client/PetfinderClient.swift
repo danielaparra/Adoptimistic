@@ -54,10 +54,6 @@ class PetfinderClient {
                 return
             }
             
-            if let json = String(data: data, encoding: .utf8) {
-                print(json)
-            }
-            
             do {
                 let petFindResults = try JSONDecoder().decode(PetsFindResult.self, from: data)
                 completion(petFindResults.pets, petFindResults.lastOffset, nil)

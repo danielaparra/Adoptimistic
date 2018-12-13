@@ -8,11 +8,40 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class FavoritesCollectionViewController: UICollectionViewController, PetControllerProtocol, NSFetchedResultsControllerDelegate {
+class FavoritesCollectionViewController: UICollectionViewController, PetControllerProtocol, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let geocoder = CLGeocoder()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
+        guard let latitude = locationManager.location?.coordinate.latitude,
+            let longitude = locationManager.location?.coordinate.longitude else { return }
+        
+        let userLocation = CLLocation(latitude: latitude, longitude: longitude)
+        geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
+            if let error = error {
+                NSLog("Error fetching placemark for user location: \(error)")
+                return
+            }
+            
+            guard let placemarks = placemarks else { return }
+            
+            let pm = placemarks.first
+            let zipcode = pm?.postalCode
+            DispatchQueue.main.async {
+                self.currentUserLocation = zipcode
+            }
+        }
         
         collectionView.reloadData()
     }
@@ -34,9 +63,12 @@ class FavoritesCollectionViewController: UICollectionViewController, PetControll
     
         let pet = fetchedResultsController.object(at: indexPath)
         cell.pet = pet
+        cell.userLocation = currentUserLocation
     
         return cell
     }
+    
+    // MARK: - Properties
     
     var petController: PetController?
     lazy var fetchedResultsController: NSFetchedResultsController<Pet> = {
@@ -52,4 +84,12 @@ class FavoritesCollectionViewController: UICollectionViewController, PetControll
         return frc
     }()
 
+    private var currentUserLocation: String? {
+        didSet{
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    private let locationManager = CLLocationManager()
 }
