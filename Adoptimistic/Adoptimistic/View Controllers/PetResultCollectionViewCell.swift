@@ -27,6 +27,7 @@ class PetResultCollectionViewCell: UICollectionViewCell {
         
         nameLabel.text = pet.name
         //breedLabel.text = pet.breeds?.first
+        
     }
     
     // MARK: - Properties
@@ -41,6 +42,7 @@ class PetResultCollectionViewCell: UICollectionViewCell {
             updatePetViews()
         }
     }
+    var location: String?
     
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!

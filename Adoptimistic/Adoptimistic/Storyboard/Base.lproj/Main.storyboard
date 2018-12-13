@@ -184,10 +184,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GI-K1-GWw">
                                 <rect key="frame" x="325" y="236" width="30" height="30"/>
                                 <state key="normal" title="&gt;"/>
+                                <connections>
+                                    <action selector="pressForNextPhoto:" destination="fDO-iY-peH" eventType="touchUpInside" id="iyc-xf-zgy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OR0-VC-qst">
                                 <rect key="frame" x="20" y="236" width="30" height="30"/>
                                 <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="pressForPreviousPhoto:" destination="fDO-iY-peH" eventType="touchUpInside" id="HIm-Yv-qvP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -215,6 +221,18 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="Cjv-H7-irn"/>
+                    <connections>
+                        <outlet property="breedsLabel" destination="HaF-Le-lTv" id="h8q-fp-BBh"/>
+                        <outlet property="descriptionLabel" destination="K1z-aA-xNO" id="mh7-s4-Qe7"/>
+                        <outlet property="distanceLabel" destination="k8e-yT-M0f" id="2LI-Qc-71u"/>
+                        <outlet property="nameLabel" destination="gzo-eD-aqh" id="k3p-5v-XlH"/>
+                        <outlet property="nextPhotoButton" destination="5GI-K1-GWw" id="yt3-b3-GIF"/>
+                        <outlet property="notesTextView" destination="pIA-fY-xnJ" id="6Vg-R0-vcl"/>
+                        <outlet property="photoImageView" destination="Rno-dP-xTG" id="HQ0-Is-JKf"/>
+                        <outlet property="previousPhotoButton" destination="OR0-VC-qst" id="fht-jC-jjr"/>
+                        <outlet property="sexLabel" destination="P9h-G9-767" id="ph1-bb-wzk"/>
+                        <outlet property="sizeLabel" destination="3gA-zl-3rG" id="D4b-H8-CQL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HN2-tV-NgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

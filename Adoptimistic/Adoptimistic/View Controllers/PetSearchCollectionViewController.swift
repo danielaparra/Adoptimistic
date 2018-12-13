@@ -35,7 +35,9 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             
             let pm = placemarks.first
             let zipcode = pm?.postalCode
-            self.zipcodeTextField.text = zipcode
+            DispatchQueue.main.async {
+                self.zipcodeTextField.text = zipcode
+            }
         }
     }
     
@@ -94,7 +96,9 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             self.sex = sex
             self.age = age
             
-            self.loadMoreButton.isHidden = true
+            DispatchQueue.main.async {
+                self.loadMoreButton.isHidden = true
+            }
         }
     }
     
@@ -137,6 +141,9 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         
         let petRep = petSearchResults?[indexPath.row]
         cell.petRep = petRep
+        
+        //Should this be a CLLocation already? Maybe not for every case
+        cell.location = savedLocation
         
         return cell
     }
