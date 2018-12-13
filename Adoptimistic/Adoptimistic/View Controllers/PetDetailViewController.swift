@@ -41,7 +41,12 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
         guard let pet = pet, isViewLoaded else { return }
         
         nameLabel.text = pet.name
-        //breedLabel.text = pet.breeds?.first
+        //        if let breeds = pet.breeds {
+        //            let breedsString = breeds.joined(separator: ", ")
+        //            breedLabel.text = "Breed(s): \(breedsString)"
+        //        } else {
+        //            breedLabel.text = "No breed specified"
+        //        }
         
     }
     

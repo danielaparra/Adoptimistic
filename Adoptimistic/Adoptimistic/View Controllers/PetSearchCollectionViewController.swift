@@ -9,7 +9,28 @@
 import UIKit
 import CoreLocation
 
-class PetSearchCollectionViewController: UIViewController, PetControllerProtocol, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate {
+class PetSearchCollectionViewController: UIViewController, PetControllerProtocol, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, PetResultCellDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+    }
+    
+    // MARK: - PetResultCellDelegate
+    
+    func didClickFavoriteButton(for cell: PetResultCollectionViewCell) {
+        guard let petRep = cell.petRep else { return }
+        
+        if !cell.isFavorite {
+            petController?.addPetToFavorites(petRep: petRep)
+        } else {
+            //find pet equal to pet rep
+            //remove pet from favorites
+        }
+    }
+    
+    // MARK: - IBActions
     
     @IBAction func getCurrentLocation(_ sender: Any) {
         let geocoder = CLGeocoder()
@@ -97,7 +118,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             self.age = age
             
             DispatchQueue.main.async {
-                self.loadMoreButton.isHidden = true
+                self.loadMoreButton.isHidden = false
             }
         }
     }
@@ -144,6 +165,8 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         
         //Should this be a CLLocation already? Maybe not for every case
         cell.userLocation = savedLocation
+        
+        cell.delegate = self
         
         return cell
     }

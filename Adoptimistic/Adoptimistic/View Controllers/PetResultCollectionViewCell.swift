@@ -15,23 +15,67 @@ protocol PetResultCellDelegate: class {
 
 class PetResultCollectionViewCell: UICollectionViewCell {
     
+    
+    
+    @IBAction func clickFavoriteButton(_ sender: Any) {
+        if !isFavorite {
+            favoriteButton.setImage(UIImage(named: "Favorite" ), for: .normal)
+            delegate?.didClickFavoriteButton(for: self)
+            isFavorite = true
+        } else {
+            favoriteButton.setImage(UIImage(named: "Unfavorite"), for: .normal)
+            delegate?.didClickFavoriteButton(for: self)
+            isFavorite = false
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func updatePetRepViews() {
-        guard let petRep = petRep else { return }
+        guard let petRep = petRep,
+            let photoURL = petRep.photos.first else { return }
+    
+        PetfinderClient.shared.fetchImageDataFromURL(urlString: photoURL) { (data, error) in
+            if let error = error {
+                NSLog("\(error)")
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            DispatchQueue.main.async {
+                self.photoImageView.image = UIImage(data: data)
+            }
+        }
         
         nameLabel.text = petRep.name
-        let zipcode = NSNumber(value: (petRep.shelter?.zipcode)!)
-        setMilesAwayLabel(from: zipcode.stringValue)
+    
+        setMilesAwayLabel(from: petRep.contact.zipcode)
     }
     
     private func updatePetViews() {
-        guard let pet = pet else { return }
+        guard let pet = pet,
+            let photos = pet.photos,
+            let photoURL = photos.first,
+            let contact = pet.contact,
+            let zipcode = contact.zipcode else { return }
+        
+        PetfinderClient.shared.fetchImageDataFromURL(urlString: photoURL) { (data, error) in
+            if let error = error {
+                NSLog("\(error)")
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            DispatchQueue.main.async {
+                self.photoImageView.image = UIImage(data: data)
+            }
+        }
         
         nameLabel.text = pet.name
-        let zipcode = NSNumber(value: (pet.shelter?.zipcode)!)
-        setMilesAwayLabel(from: zipcode.stringValue)
-        
+    
+        setMilesAwayLabel(from: zipcode)
     }
     
     private func setMilesAwayLabel(from location: String) {
@@ -56,7 +100,13 @@ class PetResultCollectionViewCell: UICollectionViewCell {
                 let distanceInMeters = userLocation.distance(from: petLocation)
                 let distanceInMiles = round(distanceInMeters / 1609.344 * 100)/100
                 
-                self.milesLabel.text = "\(distanceInMiles) miles"
+                DispatchQueue.main.async {
+                    if distanceInMeters < 1609.344 {
+                        self.milesLabel.text = "< 1 mile away"
+                    } else {
+                        self.milesLabel.text = "\(distanceInMiles) miles away"
+                    }
+                }
             }
         }
         
@@ -93,10 +143,10 @@ class PetResultCollectionViewCell: UICollectionViewCell {
         }
     }
     var userLocation: String?
+    var isFavorite: Bool = false
     
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var breedLabel: UILabel!
     @IBOutlet weak var milesLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var petDetailsView: UIView!

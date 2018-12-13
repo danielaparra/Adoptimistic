@@ -11,9 +11,9 @@ import CoreData
 
 class FavoritesCollectionViewController: UICollectionViewController, PetControllerProtocol, NSFetchedResultsControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         collectionView.reloadData()
     }
 

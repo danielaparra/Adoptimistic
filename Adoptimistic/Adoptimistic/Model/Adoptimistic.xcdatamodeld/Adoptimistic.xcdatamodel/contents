@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G4015" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Contact" representedClassName="Contact" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zipcode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="contact" inverseEntity="Pet" syncable="YES"/>
+    </entity>
     <entity name="Pet" representedClassName="Pet" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="animal" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,6 +26,7 @@
         <attribute name="shelterId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shelterPetId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="pet" inverseEntity="Contact" syncable="YES"/>
         <relationship name="shelter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shelter" inverseName="shelterPets" inverseEntity="Shelter" syncable="YES"/>
     </entity>
     <entity name="Shelter" representedClassName="Shelter" syncable="YES" codeGenerationType="class">
@@ -34,7 +44,8 @@
         <relationship name="shelterPets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="shelter" inverseEntity="Pet" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Pet" positionX="-63" positionY="-18" width="128" height="300"/>
+        <element name="Pet" positionX="-63" positionY="-18" width="128" height="315"/>
         <element name="Shelter" positionX="155.796875" positionY="-281.66796875" width="128" height="30"/>
+        <element name="Contact" positionX="500.31640625" positionY="-94.1796875" width="128" height="150"/>
     </elements>
 </model>

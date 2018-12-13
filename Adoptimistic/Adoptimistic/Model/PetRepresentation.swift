@@ -11,7 +11,7 @@ import Foundation
 class PetRepresentation: NSObject, Decodable{
     let age: String //Age Type
     let animal: String //Animal Type
-    let breeds: [String]
+    let breeds: [String]?
     let petDescription: String?
     let identifier: Int16
     let lastUpdate: String
@@ -24,6 +24,52 @@ class PetRepresentation: NSObject, Decodable{
     let shelterPetId: String?
     let size: String //Size Type
     var shelter: ShelterRepresentation?
+    let contact: Contact
+    
+    class Contact: Decodable {
+        let city: String
+        let address: String?
+        let state: String
+        let zipcode: String
+        let phone: String?
+        let email: String?
+        
+        enum CodingKeys: String, CodingKey {
+            case city
+            case address1
+            case address2
+            case state
+            case zip
+            case phone
+            case email
+        }
+        
+        required init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            let cityContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .city)
+            let city = try cityContainer.decode(String.self, forKey: .t)
+            let address1Container = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .address1)
+            let address1 = try address1Container.decodeIfPresent(String.self, forKey: .t) ?? ""
+            let address2Container = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .address2)
+            let address2 = try address2Container.decodeIfPresent(String.self, forKey: .t) ?? ""
+            let address = address1 + " " + address2
+            let stateContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .state)
+            let state = try stateContainer.decode(String.self, forKey: .t)
+            let zipcodeContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .zip)
+            let zipcode = try zipcodeContainer.decode(String.self, forKey: .t)
+            let phoneContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .phone)
+            let phone = try phoneContainer.decodeIfPresent(String.self, forKey: .t)
+            let emailContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .email)
+            let email = try emailContainer.decodeIfPresent(String.self, forKey: .t)
+            
+            self.city = city
+            self.address = address
+            self.state = state
+            self.zipcode = zipcode
+            self.phone = phone
+            self.email = email
+        }
+    }
     
     enum CodingKeys: String, CodingKey {
         case options
@@ -40,10 +86,25 @@ class PetRepresentation: NSObject, Decodable{
         case shelterId
         case lastUpdate
         case animal
+        case contact
     }
     
     enum OptionsCodingKeys: String, CodingKey {
         case option
+    }
+    
+    enum MediaCodingKeys: String, CodingKey {
+        case photos
+    }
+    
+    enum PhotosCodingKeys: String, CodingKey {
+        case photo
+    }
+    
+    enum PhotoCodingKeys: String, CodingKey {
+        case size = "@size"
+        case t = "$t"
+        case id = "@id"
     }
     
     required init(from decoder: Decoder) throws {
@@ -63,7 +124,19 @@ class PetRepresentation: NSObject, Decodable{
         let sizeContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .size)
         let size = try sizeContainer.decode(String.self, forKey: .t)
         
-        //media photos
+        let mediaContainer = try container.nestedContainer(keyedBy: MediaCodingKeys.self, forKey: .media)
+        let photosContainer = try mediaContainer.nestedContainer(keyedBy: PhotosCodingKeys.self, forKey: .photos)
+        var photoContainer = try photosContainer.nestedUnkeyedContainer(forKey: .photo)
+        var photos = [String]()
+        
+        while !photoContainer.isAtEnd {
+            let photo = try photoContainer.nestedContainer(keyedBy: PhotoCodingKeys.self)
+            let size = try photo.decode(String.self, forKey: .size)
+            if size == "fpm" { //95 pixels wide
+                let photoURLString = try photo.decode(String.self, forKey: .t)
+                photos.append(photoURLString)
+            }
+        }
         
         let idContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .id)
         let identifierString = try idContainer.decode(String.self, forKey: .t)
@@ -88,11 +161,12 @@ class PetRepresentation: NSObject, Decodable{
         let animalContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .animal)
         let animal = try animalContainer.decode(String.self, forKey: .t)
         
+        let contact = try container.decode(Contact.self, forKey: .contact)
+        
         self.options = [""]
         self.age = age
         self.size = size
-        //photos
-        self.photos = [""]
+        self.photos = photos
         self.identifier = Int16(identifierString) ?? 0 //Should never be zero.
         self.shelterPetId = shelterPetId
         //breeds
@@ -105,6 +179,7 @@ class PetRepresentation: NSObject, Decodable{
         self.lastUpdate = lastUpdate
         self.animal = animal
         self.shelter = nil
+        self.contact = contact
     }
 }
 

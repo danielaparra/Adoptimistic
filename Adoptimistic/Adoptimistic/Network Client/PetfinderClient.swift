@@ -54,6 +54,10 @@ class PetfinderClient {
                 return
             }
             
+            if let json = String(data: data, encoding: .utf8) {
+                print(json)
+            }
+            
             do {
                 let petFindResults = try JSONDecoder().decode(PetsFindResult.self, from: data)
                 completion(petFindResults.pets, petFindResults.lastOffset, nil)
@@ -103,10 +107,6 @@ class PetfinderClient {
                 NSLog("No data returned by data task")
                 completion(nil, NSError())
                 return
-            }
-            
-            if let json = String(data: data, encoding: .utf8) {
-                print(json)
             }
             
             do {
@@ -250,6 +250,26 @@ class PetfinderClient {
                 completion(nil, error)
                 return
             }
+        }.resume()
+    }
+    
+    func fetchImageDataFromURL(urlString: String, completion: @escaping (Data?, Error?) -> Void) {
+        let url = URL(string: urlString)!
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                NSLog("\(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data returned from data task.")
+                completion(nil, NSError())
+                return
+            }
+            
+            completion(data, nil)
         }.resume()
     }
     

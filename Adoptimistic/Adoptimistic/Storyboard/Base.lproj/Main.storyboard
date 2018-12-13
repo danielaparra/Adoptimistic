@@ -422,7 +422,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="165" placeholderIntrinsicHeight="210" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dzb-iQ-6lM">
                                                             <rect key="frame" x="0.0" y="0.0" width="165" height="210"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoLoading" translatesAutoresizingMaskIntoConstraints="NO" id="gQ6-AR-ixY">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoLoading" translatesAutoresizingMaskIntoConstraints="NO" id="gQ6-AR-ixY">
                                                                     <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="gQ6-AR-ixY" secondAttribute="height" multiplier="1:1" id="IsP-47-9jt"/>
@@ -455,23 +455,14 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgD-Is-sFJ">
-                                                                            <rect key="frame" x="8" y="29" width="28.5" height="12"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="rdF-1q-m2n" firstAttribute="top" secondItem="6nC-cK-kkO" secondAttribute="top" constant="8" id="5x8-IC-hXO"/>
-                                                                        <constraint firstItem="lYJ-Ln-kij" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rgD-Is-sFJ" secondAttribute="trailing" constant="8" symbolic="YES" id="8pi-2k-5oP"/>
                                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rdF-1q-m2n" secondAttribute="trailing" constant="20" symbolic="YES" id="L5z-3W-grU"/>
-                                                                        <constraint firstItem="rgD-Is-sFJ" firstAttribute="leading" secondItem="6nC-cK-kkO" secondAttribute="leading" constant="8" id="cir-Yg-69b"/>
                                                                         <constraint firstAttribute="trailing" secondItem="lYJ-Ln-kij" secondAttribute="trailing" constant="4" id="epr-65-OMX"/>
                                                                         <constraint firstAttribute="bottom" secondItem="lYJ-Ln-kij" secondAttribute="bottom" constant="4" id="jRN-hS-Nf7"/>
                                                                         <constraint firstItem="rdF-1q-m2n" firstAttribute="leading" secondItem="6nC-cK-kkO" secondAttribute="leading" constant="8" id="kD7-EZ-BEV"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="rgD-Is-sFJ" secondAttribute="bottom" constant="4" id="x7M-Sz-P4t"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -488,6 +479,9 @@
                                                                 <constraint firstAttribute="width" constant="30" id="PPn-fB-Tvm"/>
                                                             </constraints>
                                                             <state key="normal" image="Unfavorite"/>
+                                                            <connections>
+                                                                <action selector="clickFavoriteButton:" destination="Az6-gT-V4P" eventType="touchUpInside" id="a3j-zn-A91"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </view>
@@ -501,7 +495,6 @@
                                                 </constraints>
                                                 <size key="customSize" width="165" height="210"/>
                                                 <connections>
-                                                    <outlet property="breedLabel" destination="rgD-Is-sFJ" id="BBJ-5c-zi0"/>
                                                     <outlet property="favoriteButton" destination="aZc-Tx-lwO" id="sqm-Ve-zCA"/>
                                                     <outlet property="milesLabel" destination="r0e-zx-0Gn" id="nWu-DC-jFj"/>
                                                     <outlet property="nameLabel" destination="rdF-1q-m2n" id="JgS-xV-8Bw"/>
@@ -630,23 +623,14 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-e5-lZy">
-                                                            <rect key="frame" x="8" y="29" width="28.5" height="12"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RNo-n1-SPe" secondAttribute="trailing" constant="20" symbolic="YES" id="MCo-Ld-C4P"/>
                                                         <constraint firstItem="RNo-n1-SPe" firstAttribute="top" secondItem="PXr-OY-8gD" secondAttribute="top" constant="8" id="VKI-DJ-pfz"/>
-                                                        <constraint firstItem="AVs-QT-NEM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wrl-e5-lZy" secondAttribute="trailing" constant="8" symbolic="YES" id="XU2-Kd-3gL"/>
-                                                        <constraint firstAttribute="bottom" secondItem="wrl-e5-lZy" secondAttribute="bottom" constant="4" id="YPF-MM-ilS"/>
                                                         <constraint firstItem="RNo-n1-SPe" firstAttribute="leading" secondItem="PXr-OY-8gD" secondAttribute="leading" constant="8" id="hW2-ug-Hg6"/>
                                                         <constraint firstAttribute="bottom" secondItem="AVs-QT-NEM" secondAttribute="bottom" constant="4" id="l3R-B7-6tJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="AVs-QT-NEM" secondAttribute="trailing" constant="4" id="qI3-u5-bti"/>
-                                                        <constraint firstItem="wrl-e5-lZy" firstAttribute="leading" secondItem="PXr-OY-8gD" secondAttribute="leading" constant="8" id="xvS-Yh-iLw"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -728,6 +712,6 @@
         <image name="Unfavorite" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qDR-WG-PKq"/>
+        <segue reference="VVz-nq-sWp"/>
     </inferredMetricsTieBreakers>
 </document>
