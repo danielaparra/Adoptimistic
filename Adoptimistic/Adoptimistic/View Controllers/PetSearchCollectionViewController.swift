@@ -143,7 +143,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         cell.petRep = petRep
         
         //Should this be a CLLocation already? Maybe not for every case
-        cell.location = savedLocation
+        cell.userLocation = savedLocation
         
         return cell
     }
