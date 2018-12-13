@@ -46,7 +46,7 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControlle
     // MARK: - Private Methods
     
     private func fetchPetsNearMe() {
-        PetfinderClient.shared.findPets(near: "94107") { (petResults, error) in
+        PetfinderClient.shared.findPets(near: "94107") { (petResults, _, error) in
             if let error = error {
                 NSLog("Error finding pets: \(error)")
                 return

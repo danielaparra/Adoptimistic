@@ -10,61 +10,80 @@ import UIKit
 
 class PetSearchCollectionViewController: UIViewController, PetControllerProtocol, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
-    
     @IBAction func searchForPets(_ sender: Any) {
         
-        if moreDetailsIsHidden {
-            guard let zipcode = zipcodeTextField.text else { return }
-            
-            let animalText = animalTextField.text
-            
-            var animal: AnimalType?
-            switch animalText {
-            case AnimalType.barnYard.rawValue:
-                animal = AnimalType.barnYard
-            case AnimalType.bird.rawValue:
-                animal = AnimalType.bird
-            case AnimalType.cat.rawValue:
-                animal = AnimalType.cat
-            case AnimalType.dog.rawValue:
-                animal = AnimalType.dog
-            case AnimalType.horse.rawValue:
-                animal = AnimalType.horse
-            case AnimalType.rabbit.rawValue:
-                animal = AnimalType.rabbit
-            case AnimalType.reptile.rawValue:
-                animal = AnimalType.reptile
-            case AnimalType.smallFurry.rawValue:
-                animal = AnimalType.smallFurry
-            default:
-                animal = nil
+        guard let zipcode = zipcodeTextField.text else { return }
+        
+        let animalText = animalTextField.text
+        
+        var animal: AnimalType?
+        switch animalText {
+        case AnimalType.barnYard.rawValue:
+            animal = AnimalType.barnYard
+        case AnimalType.bird.rawValue:
+            animal = AnimalType.bird
+        case AnimalType.cat.rawValue:
+            animal = AnimalType.cat
+        case AnimalType.dog.rawValue:
+            animal = AnimalType.dog
+        case AnimalType.horse.rawValue:
+            animal = AnimalType.horse
+        case AnimalType.rabbit.rawValue:
+            animal = AnimalType.rabbit
+        case AnimalType.reptile.rawValue:
+            animal = AnimalType.reptile
+        case AnimalType.smallFurry.rawValue:
+            animal = AnimalType.smallFurry
+        default:
+            animal = nil
+        }
+        
+        var breed: String?
+        var size: SizeType?
+        var sex: GenderType?
+        var age: AgeType?
+        
+        if !moreDetailsIsHidden {
+           //change them here according to details tab
+        }
+        
+        PetfinderClient.shared.findPets(near: zipcode, animal: animal, breed: breed, size: size, sex: sex, age: age) { (petResults, lastOffset, error) in
+            if let error = error {
+                NSLog("Error finding pets: \(error)")
+                return
             }
             
-            PetfinderClient.shared.findPets(near: zipcode, animal: animal) { (petResults, error) in
-                if let error = error {
-                    NSLog("Error finding pets: \(error)")
-                    return
-                }
-                
-                guard let petResults = petResults else { return }
-                
-                self.petSearchResults = petResults
-                
-//                if let first = petResults.first {
-//                    self.petController?.addPetToFavorites(petRep: first)
-//                }
-            }
-        } else {
-            //more details
+            guard let petResults = petResults,
+                let lastOffset = lastOffset else { return }
+            
+            self.petSearchResults = petResults
+            self.offset = lastOffset
+            self.savedLocation = zipcode
+            self.animal = animal
+            self.breed = breed
+            self.size = size
+            self.sex = sex
+            self.age = age
+            
+            self.loadMoreButton.isHidden = true
         }
     }
     
     @IBAction func findMorePets(_ sender: Any) {
+        guard let savedLocation = savedLocation else { return }
+        
+        PetfinderClient.shared.findPets(near: savedLocation, animal: animal, breed: breed, size: size, sex: sex, age: age, offset: offset) { (petResults, lastOffset, error) in
+            if let error = error {
+                NSLog("Error finding pets: \(error)")
+                return
+            }
+            
+            guard let petResults = petResults,
+                let lastOffset = lastOffset else { return }
+            
+            self.offset = lastOffset
+            self.petSearchResults?.append(contentsOf: petResults)
+        }
     }
     
     @IBAction func addMoreDetails(_ sender: Any) {
@@ -87,8 +106,8 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetResultCell", for: indexPath) as?  PetResultCollectionViewCell ?? PetResultCollectionViewCell()
         
-        let pet = petSearchResults?[indexPath.row]
-        cell.petRep = pet
+        let petRep = petSearchResults?[indexPath.row]
+        cell.petRep = petRep
         
         return cell
     }
@@ -97,14 +116,12 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ViewPetResult" {
-            
+            guard let destinationVC = segue.destination as? PetDetailViewController,
+                let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
+            let petRep = petSearchResults?[indexPath.row]
+            destinationVC.petRep = petRep
+            destinationVC.petController = petController
         }
-    }
-    
-    // MARK: - Private Methods
-    
-    private func updateViews() {
-        
     }
     
     // MARK: - Properties
@@ -117,13 +134,20 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             }
         }
     }
-    private var offset: String?
     private var moreDetailsIsHidden = true
+    private var savedLocation: String?
+    private var animal: AnimalType?
+    private var breed: String?
+    private var size: SizeType?
+    private var sex: GenderType?
+    private var age: AgeType?
+    private var offset: String?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var zipcodeTextField: UITextField!
     @IBOutlet weak var animalTextField: UITextField!
     @IBOutlet weak var moreDetailsStackView: UIStackView!
     @IBOutlet weak var moreDetailsButton: UIButton!
+    @IBOutlet weak var loadMoreButton: UIButton!
     
 }

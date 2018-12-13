@@ -13,7 +13,7 @@ class PetfinderClient {
     static let shared = PetfinderClient()
     
     //Search for pets from location and other optional parameters (pet.find)
-    func findPets(near location: String, animal: AnimalType? = nil, breed: String? = nil, size: SizeType? = nil, sex: GenderType? = nil, age: AgeType? = nil, offset: String? = nil, completion: @escaping ([PetRepresentation]?, Error?) -> Void ) {
+    func findPets(near location: String, animal: AnimalType? = nil, breed: String? = nil, size: SizeType? = nil, sex: GenderType? = nil, age: AgeType? = nil, offset: String? = nil, completion: @escaping ([PetRepresentation]?, String?, Error?) -> Void ) {
         
         let url = baseURL.appendingPathComponent("pet").appendingPathExtension("find")
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
@@ -44,22 +44,22 @@ class PetfinderClient {
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error fetching pets from \(location): \(error)")
-                completion(nil, error)
+                completion(nil, nil, error)
                 return
             }
             
             guard let data = data else {
                 NSLog("No data returned by data task")
-                completion(nil, NSError())
+                completion(nil, nil, NSError())
                 return
             }
             
             do {
                 let petFindResults = try JSONDecoder().decode(PetsFindResult.self, from: data)
-                completion(petFindResults.pets, nil)
+                completion(petFindResults.pets, petFindResults.lastOffset, nil)
             } catch {
                 NSLog("Error decoding pet representations: \(error)")
-                completion(nil, error)
+                completion(nil, nil, error)
                 return
             }
         }.resume()

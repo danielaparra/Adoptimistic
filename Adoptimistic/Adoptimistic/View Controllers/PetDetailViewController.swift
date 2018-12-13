@@ -17,5 +17,5 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
     }
     
     var petController: PetController?
-
+    var petRep: PetRepresentation?
 }
