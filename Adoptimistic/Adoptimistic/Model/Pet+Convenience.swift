@@ -28,6 +28,7 @@ extension Pet {
         self.shelterPetId = petRep.shelterPetId
         self.size = petRep.size
         self.notes = notes
+        self.contact = Contact(petRep: petRep, context: context)
     }
 }
 
