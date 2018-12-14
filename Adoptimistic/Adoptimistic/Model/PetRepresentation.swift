@@ -25,6 +25,7 @@ class PetRepresentation: NSObject, Decodable{
     let size: String //Size Type
     var shelter: ShelterRepresentation?
     let contact: Contact
+    var isFavorite: Bool?
     
     class Contact: Decodable {
         let city: String

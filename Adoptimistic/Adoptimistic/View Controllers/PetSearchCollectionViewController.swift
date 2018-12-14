@@ -21,7 +21,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     
     func didClickFavoriteButton(for cell: PetResultCollectionViewCell) {
         guard let petRep = cell.petRep,
-            let isFavorite = cell.isFavorite else { return }
+            let isFavorite = petRep.isFavorite else { return }
         
         if !isFavorite {
             petController?.addPetToFavorites(petRep: petRep)
@@ -162,11 +162,11 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetResultCell", for: indexPath) as?  PetResultCollectionViewCell ?? PetResultCollectionViewCell()
         
         let petRep = petSearchResults?[indexPath.row]
+        petRep?.isFavorite = false
         cell.petRep = petRep
         
         //Should this be a CLLocation already? Maybe not for every case
         cell.userLocation = savedLocation
-        cell.isFavorite = false
         
         cell.delegate = self
         

@@ -31,6 +31,7 @@
 		7BDC847821C0B46A006AF641 /* PetResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847721C0B46A006AF641 /* PetResultCollectionViewCell.swift */; };
 		7BDC847A21C0CA58006AF641 /* PetRepresentation+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847921C0CA58006AF641 /* PetRepresentation+Mapping.swift */; };
 		7BDC847C21C316E2006AF641 /* Contact+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847B21C316E2006AF641 /* Contact+Convenience.swift */; };
+		7BDC847E21C33446006AF641 /* PetMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC847D21C33446006AF641 /* PetMapAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		7BDC847721C0B46A006AF641 /* PetResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BDC847921C0CA58006AF641 /* PetRepresentation+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetRepresentation+Mapping.swift"; sourceTree = "<group>"; };
 		7BDC847B21C316E2006AF641 /* Contact+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Convenience.swift"; sourceTree = "<group>"; };
+		7BDC847D21C33446006AF641 /* PetMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				7BDC845621BF5088006AF641 /* Pet+Convenience.swift */,
 				7BDC845821BF58ED006AF641 /* PetRepresentation.swift */,
 				7BDC847921C0CA58006AF641 /* PetRepresentation+Mapping.swift */,
+				7BDC847D21C33446006AF641 /* PetMapAnnotation.swift */,
 				7BDC847B21C316E2006AF641 /* Contact+Convenience.swift */,
 				7BDC845C21C0073C006AF641 /* Shelter+Convenience.swift */,
 				7BDC845E21C00768006AF641 /* ShelterRepresentation.swift */,
@@ -256,6 +259,7 @@
 			files = (
 				7BDC847221C03832006AF641 /* PetfinderClient.swift in Sources */,
 				7BDC846221C03679006AF641 /* PetSearchCollectionViewController.swift in Sources */,
+				7BDC847E21C33446006AF641 /* PetMapAnnotation.swift in Sources */,
 				7BDC846621C036C1006AF641 /* FavoritesCollectionViewController.swift in Sources */,
 				7BDC847621C059BB006AF641 /* BreedResults.swift in Sources */,
 				7BDC845F21C00768006AF641 /* ShelterRepresentation.swift in Sources */,
@@ -420,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8DKFDJ8NNY;
 				INFOPLIST_FILE = Adoptimistic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -437,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8DKFDJ8NNY;
 				INFOPLIST_FILE = Adoptimistic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
