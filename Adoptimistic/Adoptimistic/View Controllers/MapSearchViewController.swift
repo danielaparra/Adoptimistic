@@ -9,7 +9,14 @@
 import UIKit
 import MapKit
 
-class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControllerProtocol {
+class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControllerProtocol, DetailAnnotationViewDelegate {
+    
+    func didClickViewPetsButton(on detailAnnotationView: MapPetDetailAnnotationView) {
+        guard let petMapAnn = detailAnnotationView.petMapAnn else { return }
+        
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +36,7 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControlle
         guard let userLocation = locationManager.location?.coordinate else { return }
         
         fetchPetsNear(userLocation: userLocation)
-        
-        let petMapAnn = PetMapAnnotation()
-        petMapAnn.coordinate = userLocation
-        mapView.addAnnotation(petMapAnn)
+
     }
     
     // MARK: - MKMapViewDelegate
@@ -51,6 +55,12 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControlle
         
         annotationView.glyphImage = UIImage(named: "Pets")
         annotationView.canShowCallout = true
+        
+        let detailView = MapPetDetailAnnotationView(frame: .zero)
+        detailView.petMapAnn = petMapAnn
+        detailView.delegate = self
+        
+        annotationView.detailCalloutAccessoryView = detailView
         
         return annotationView
     }
@@ -76,13 +86,7 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControlle
                 }
                 
                 guard let petResults = petResults else { return }
-                
-                DispatchQueue.main.async {
-                    let petMapAnn = PetMapAnnotation()
-                    petMapAnn.coordinate = userLocation
-                    self.mapView.addAnnotation(petMapAnn)
-                }
-                
+                self.sort(petResults: petResults)
             }
         }
     }
@@ -103,10 +107,72 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControlle
         }
     }
     
+    private func getCoordinateFor(contact: PetRepresentation.Contact, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
+        
+        var location = ""
+        if let address = contact.address {
+            location = address
+        }
+        location += "\(contact.city), \(contact.state) \(contact.zipcode)"
+        
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location, in: nil, preferredLocale: nil) { (placemarks, error) in
+            if let error = error {
+                NSLog("Error fetching placemarks for zipcode: \(error)")
+                return
+            }
+            
+            guard let placemarks = placemarks,
+                let pm = placemarks.first,
+                let location = pm.location else { return }
+            
+            completion(location.coordinate)
+            return
+        }
+    }
+    
+    private func sort(petResults: [PetRepresentation]){
+        
+        let setOfContacts = Set(petResults.compactMap { $0.contact })
+        
+        var arrayOfMapAnns = [PetMapAnnotation]()
+        
+        let group = DispatchGroup()
+        for contact in setOfContacts {
+            group.enter()
+            getCoordinateFor(contact: contact) { (coordinate) in
+                guard let coordinate = coordinate else { return }
+                
+                let contactRep = ContactRepresentation(city: contact.city, address: contact.address, state: contact.state, zipcode: contact.zipcode, phone: contact.phone, email: contact.email)
+                let mapAnn = PetMapAnnotation(contact: contactRep, coordinate: coordinate)
+                arrayOfMapAnns.append(mapAnn)
+                group.leave()
+            }
+        }
+        group.wait()
+        
+        for petResult in petResults {
+            for mapAnn in arrayOfMapAnns {
+                
+                let contact = petResult.contact
+                guard let mapContact = mapAnn.contact else {return}
+                if contact.city == mapContact.city &&
+                contact.address == mapContact.address &&
+                contact.zipcode == mapContact.zipcode &&
+                    contact.state == mapContact.state {
+                    mapAnn.petReps.append(petResult)
+                }
+            }
+        }
+        
+        mapView.addAnnotations(arrayOfMapAnns)
+    }
+    
     // MARK: - Properties
     
     var petController: PetController?
     
+    private let operationQueue = OperationQueue()
     private let locationManager = CLLocationManager()
     private var userTrackingButton: MKUserTrackingButton!
     

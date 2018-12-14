@@ -25,6 +25,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         
         if !isFavorite {
             petController?.addPetToFavorites(petRep: petRep)
+            petRep.isFavorite = true
         } else {
             //find pet equal to pet rep
             //remove pet from favorites
@@ -162,7 +163,9 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetResultCell", for: indexPath) as?  PetResultCollectionViewCell ?? PetResultCollectionViewCell()
         
         let petRep = petSearchResults?[indexPath.row]
-        petRep?.isFavorite = false
+        if petRep?.isFavorite == nil {
+            petRep?.isFavorite = false
+        }
         cell.petRep = petRep
         
         //Should this be a CLLocation already? Maybe not for every case

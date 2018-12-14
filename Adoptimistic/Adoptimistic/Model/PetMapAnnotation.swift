@@ -12,14 +12,19 @@ import MapKit
 class PetMapAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var petReps: [PetRepresentation]
-    var title: String?
-    var subtitle: String? {
+    var title: String? {
         return "\(petReps.count) pets"
     }
+//    var subtitle: String? {
+//        guard let contact = contact else { return nil }
+//        return "\(contact.city), \(contact.state)"
+//    }
+    let contact: ContactRepresentation?
     
-    required override init() {
+    init(contact: ContactRepresentation, coordinate: CLLocationCoordinate2D) {
+        
         self.petReps = []
-        self.coordinate = CLLocationCoordinate2D()
-        self.title = "Title"
+        self.coordinate = coordinate
+        self.contact = contact
     }
 }

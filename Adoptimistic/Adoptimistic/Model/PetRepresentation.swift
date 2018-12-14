@@ -27,7 +27,21 @@ class PetRepresentation: NSObject, Decodable{
     let contact: Contact
     var isFavorite: Bool?
     
-    class Contact: Decodable {
+    class Contact: Decodable, Hashable, Equatable {
+        
+        static func == (lhs: PetRepresentation.Contact, rhs: PetRepresentation.Contact) -> Bool {
+            return lhs.city == rhs.city &&
+                lhs.address == rhs.address &&
+                lhs.state == rhs.state &&
+                lhs.zipcode == rhs.zipcode &&
+                lhs.phone == rhs.phone &&
+                lhs.email == rhs.email
+        }
+        
+        var hashValue: Int {
+            return city.hashValue ^ address.hashValue ^ state.hashValue ^ zipcode.hashValue ^ phone.hashValue ^ email.hashValue
+        }
+        
         let city: String
         let address: String?
         let state: String

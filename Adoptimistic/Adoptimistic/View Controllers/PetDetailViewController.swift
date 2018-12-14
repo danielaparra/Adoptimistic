@@ -55,6 +55,17 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
         } else {
             breedsLabel.text = "No breed specified"
         }
+        
+        sizeLabel.text = petRep.size
+        sexLabel.text = petRep.sex
+        
+        if let description = petRep.petDescription {
+            descriptionLabel.text = description
+        } else {
+            descriptionLabel.text = "No description available."
+        }
+        
+        //Add other details like options
     }
     
     private func updatePetViews() {
@@ -103,6 +114,8 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
         } else {
             descriptionLabel.text = "No description available."
         }
+        
+        //Add other details like options
     }
     
     // MARK: - Properties
