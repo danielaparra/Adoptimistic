@@ -20,9 +20,10 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     // MARK: - PetResultCellDelegate
     
     func didClickFavoriteButton(for cell: PetResultCollectionViewCell) {
-        guard let petRep = cell.petRep else { return }
+        guard let petRep = cell.petRep,
+            let isFavorite = cell.isFavorite else { return }
         
-        if !cell.isFavorite {
+        if !isFavorite {
             petController?.addPetToFavorites(petRep: petRep)
         } else {
             //find pet equal to pet rep
@@ -165,6 +166,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         
         //Should this be a CLLocation already? Maybe not for every case
         cell.userLocation = savedLocation
+        cell.isFavorite = false
         
         cell.delegate = self
         

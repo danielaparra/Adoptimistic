@@ -18,14 +18,16 @@ class PetResultCollectionViewCell: UICollectionViewCell {
     
     
     @IBAction func clickFavoriteButton(_ sender: Any) {
-        if !isFavorite {
+        guard let isFavorite = isFavorite else { return }
+        
+        if isFavorite == false {
             favoriteButton.setImage(UIImage(named: "Favorite" ), for: .normal)
             delegate?.didClickFavoriteButton(for: self)
-            isFavorite = true
+            self.isFavorite = true
         } else {
             favoriteButton.setImage(UIImage(named: "Unfavorite"), for: .normal)
             delegate?.didClickFavoriteButton(for: self)
-            isFavorite = false
+            self.isFavorite = false
         }
     }
     
@@ -143,7 +145,7 @@ class PetResultCollectionViewCell: UICollectionViewCell {
         }
     }
     var userLocation: String?
-    var isFavorite: Bool = false
+    var isFavorite: Bool?
     
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!

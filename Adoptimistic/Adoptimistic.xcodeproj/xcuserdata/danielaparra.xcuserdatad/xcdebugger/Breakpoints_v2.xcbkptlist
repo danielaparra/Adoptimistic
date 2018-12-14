@@ -10,7 +10,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Adoptimistic/View Controllers/PetSearchCollectionViewController.swift"
-            timestampString = "566434738.760949"
+            timestampString = "566440464.623516"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "didClickFavoriteButton(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Adoptimistic/View Controllers/PetSearchCollectionViewController.swift"
+            timestampString = "566440464.62362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -25,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Adoptimistic/View Controllers/PetSearchCollectionViewController.swift"
-            timestampString = "566434738.7610379"
+            filePath = "Adoptimistic/View Controllers/PetDetailViewController.swift"
+            timestampString = "566440580.757604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "didClickFavoriteButton(for:)"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "updatePetViews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

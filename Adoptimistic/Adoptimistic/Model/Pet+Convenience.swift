@@ -21,7 +21,7 @@ extension Pet {
         self.mix = petRep.mix
         self.name = petRep.name
         self.options = petRep.options
-        self.petDescription = petRep.description
+        self.petDescription = petRep.petDescription
         self.photos = petRep.photos
         self.sex = petRep.sex
         self.shelterId = petRep.shelterId

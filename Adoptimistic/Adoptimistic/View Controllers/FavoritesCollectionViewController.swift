@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class FavoritesCollectionViewController: UICollectionViewController, PetControllerProtocol, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate {
+class FavoritesCollectionViewController: UICollectionViewController, PetControllerProtocol, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate, PetResultCellDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,10 +45,23 @@ class FavoritesCollectionViewController: UICollectionViewController, PetControll
         
         collectionView.reloadData()
     }
+    
+    // MARK: - PetResultCellDelegate
+    
+    func didClickFavoriteButton(for cell: PetResultCollectionViewCell) {
+        //remove from favorite and refresh
+    }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewFavePet" {
+            guard let destinationVC = segue.destination as? PetDetailViewController,
+                let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
+            let pet = fetchedResultsController.object(at: indexPath)
+            destinationVC.pet = pet
+            destinationVC.petController = petController
+        }
         
     }
 

@@ -32,22 +32,77 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
     // MARK: - Private Methods
     
     private func updatePetRepViews() {
-        guard let petRep = petRep, isViewLoaded else { return }
+        guard let petRep = petRep, isViewLoaded,
+            let photoURL = petRep.photos.first else { return }
+        
+        PetfinderClient.shared.fetchImageDataFromURL(urlString: photoURL) { (data, error) in
+            if let error = error {
+                NSLog("\(error)")
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            DispatchQueue.main.async {
+                self.photoImageView.image = UIImage(data: data)
+            }
+        }
         
         nameLabel.text = petRep.name
+        if let breeds = petRep.breeds {
+            let breedsString = breeds.joined(separator: ", ")
+            breedsLabel.text = "Breed(s): \(breedsString)"
+        } else {
+            breedsLabel.text = "No breed specified"
+        }
     }
     
     private func updatePetViews() {
-        guard let pet = pet, isViewLoaded else { return }
+        
+        guard let pet = pet, isViewLoaded,
+            let photos = pet.photos,
+            let photoURL = photos.first,
+            let contact = pet.contact,
+            let zipcode = contact.zipcode,
+            let size = pet.size,
+            let sex = pet.sex else { return }
+        
+        PetfinderClient.shared.fetchImageDataFromURL(urlString: photoURL) { (data, error) in
+            if let error = error {
+                NSLog("\(error)")
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            DispatchQueue.main.async {
+                self.photoImageView.image = UIImage(data: data)
+            }
+        }
         
         nameLabel.text = pet.name
-        //        if let breeds = pet.breeds {
-        //            let breedsString = breeds.joined(separator: ", ")
-        //            breedLabel.text = "Breed(s): \(breedsString)"
-        //        } else {
-        //            breedLabel.text = "No breed specified"
-        //        }
         
+        if contact.city != nil && contact.state != nil {
+            distanceLabel.text = "\(contact.city!), \(contact.state!)"
+        } else {
+            distanceLabel.text = "\(zipcode)"
+        }
+        
+        if let breeds = pet.breeds {
+            let breedsString = breeds.joined(separator: ", ")
+            breedsLabel.text = "Breed(s): \(breedsString)"
+        } else {
+            breedsLabel.text = "No breed specified"
+        }
+        
+        sizeLabel.text = size
+        sexLabel.text = sex
+        
+        if let description = pet.petDescription {
+            descriptionLabel.text = description
+        } else {
+            descriptionLabel.text = "No description available."
+        }
     }
     
     // MARK: - Properties
