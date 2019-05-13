@@ -76,10 +76,9 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         
         let animal = confirmAnimalType(animalText: animalText)
         let breed = confirmBreedType(breedText: breedText, for: animal)
-        
-        var size: SizeType?
-        var sex: GenderType?
-        var age: AgeType?
+        let size = confirmSize()
+        let sex = confirmGenderType()
+        let age = confirmAgeType()
         
         if !moreDetailsIsHidden {
            //change them here according to details tab
@@ -202,6 +201,47 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         // TODO: Check through breed list to find breeds for animal
         switch animal {
         
+        default:
+            return nil
+        }
+    }
+    
+    private func confirmSize() -> SizeType? {
+        switch sizeSegmentedControl.selectedSegmentIndex {
+        case 0:
+            return SizeType.small
+        case 1:
+            return SizeType.medium
+        case 2:
+            return SizeType.large
+        case 3:
+            return SizeType.extraLarge
+        default:
+            return nil
+        }
+    }
+    
+    private func confirmGenderType() -> GenderType? {
+        switch sexSegmentedControl.selectedSegmentIndex {
+        case 0:
+            return GenderType.m
+        case 1:
+            return GenderType.f
+        default:
+            return nil
+        }
+    }
+    
+    private func confirmAgeType() -> AgeType? {
+        switch ageSegmentedControl.selectedSegmentIndex {
+        case 0:
+            return AgeType.baby
+        case 1:
+            return AgeType.young
+        case 2:
+            return AgeType.adult
+        case 3:
+            return AgeType.senior
         default:
             return nil
         }
