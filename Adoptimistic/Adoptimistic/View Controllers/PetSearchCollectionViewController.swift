@@ -66,24 +66,22 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     
     @IBAction func searchForPets(_ sender: Any) {
         
+        // Unwrap text from text fields.
         guard let zipcode = zipcodeTextField.text,
             let animalText = animalTextField.text,
             let breedText = breedTextField.text else {
                 // TODO: Account for if user enters no zipcode or no animal or no breed
-                
                 return
         }
         
+        // Confirm which details have been added to the search request.
         let animal = confirmAnimalType(animalText: animalText)
         let breed = confirmBreedType(breedText: breedText, for: animal)
         let size = confirmSize()
         let sex = confirmGenderType()
         let age = confirmAgeType()
         
-        if !moreDetailsIsHidden {
-           //change them here according to details tab
-        }
-        
+        // Call Petfinder client to make search request.
         PetfinderClient.shared.findPets(near: zipcode, animal: animal, breed: breed, size: size, sex: sex, age: age) { (petResults, lastOffset, error) in
             if let error = error {
                 NSLog("Error finding pets: \(error)")
@@ -93,6 +91,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             guard let petResults = petResults,
                 let lastOffset = lastOffset else { return }
             
+            // Set pet search results and other details to load more results later.
             self.petSearchResults = petResults
             self.offset = lastOffset
             self.savedLocation = zipcode
@@ -102,6 +101,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             self.sex = sex
             self.age = age
             
+            // Display load more button.
             DispatchQueue.main.async {
                 self.loadMoreButton.isHidden = false
             }

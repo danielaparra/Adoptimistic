@@ -21,17 +21,24 @@ class PetfinderClient {
         var parameters = ["key": apiKey, "format": "json", "location": location]
         if let animal = animal {
             parameters["animal"] = animal.rawValue
-        } else if let breed = breed {
+        }
+        if let breed = breed {
             parameters["breed"] = breed
-        } else if let size = size {
+        }
+        if let size = size {
             parameters["size"] = size.rawValue
-        } else if let sex = sex {
+        }
+        if let sex = sex {
             parameters["sex"] = sex.rawValue
-        } else if let age = age {
+        }
+        if let age = age {
             parameters["age"] = age.rawValue
-        } else if let offset = offset {
+        }
+        if let offset = offset {
             parameters["offset"] = offset
         }
+        
+        print(parameters)
         
         let queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponents?.queryItems = queryItems
