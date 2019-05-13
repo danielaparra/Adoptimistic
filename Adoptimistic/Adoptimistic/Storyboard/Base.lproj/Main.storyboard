@@ -80,23 +80,23 @@
                                         <rect key="frame" x="36" y="36" width="340" height="732.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xT2-lL-KUb">
-                                                <rect key="frame" x="0.0" y="0.0" width="340" height="225"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="229.66666666666666"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OR0-VC-qst">
-                                                        <rect key="frame" x="0.0" y="97.666666666666657" width="57.666666666666664" height="30"/>
+                                                        <rect key="frame" x="0.0" y="100" width="57.666666666666664" height="30"/>
                                                         <state key="normal" title="&lt;"/>
                                                         <connections>
                                                             <action selector="pressForPreviousPhoto:" destination="fDO-iY-peH" eventType="touchUpInside" id="HIm-Yv-qvP"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoLoading" translatesAutoresizingMaskIntoConstraints="NO" id="Rno-dP-xTG">
-                                                        <rect key="frame" x="57.666666666666686" y="0.0" width="225" height="225"/>
+                                                        <rect key="frame" x="57.666666666666686" y="2.3333333333333286" width="225" height="225"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Rno-dP-xTG" secondAttribute="height" multiplier="1:1" id="Wdd-uD-BhY"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GI-K1-GWw">
-                                                        <rect key="frame" x="282.66666666666669" y="97.666666666666657" width="57.333333333333314" height="30"/>
+                                                        <rect key="frame" x="282.66666666666669" y="100" width="57.333333333333314" height="30"/>
                                                         <state key="normal" title="&gt;"/>
                                                         <connections>
                                                             <action selector="pressForNextPhoto:" destination="fDO-iY-peH" eventType="touchUpInside" id="iyc-xf-zgy"/>
@@ -108,7 +108,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0r6-TU-M62">
-                                                <rect key="frame" x="0.0" y="243" width="340" height="108"/>
+                                                <rect key="frame" x="0.0" y="247.66666666666669" width="340" height="108"/>
                                                 <subviews>
                                                     <stackView contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pfe-F5-gh7">
                                                         <rect key="frame" x="123.33333333333334" y="14.333333333333314" width="93.666666666666657" height="79.333333333333329"/>
@@ -174,26 +174,14 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Breeds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaF-Le-lTv">
-                                                <rect key="frame" x="0.0" y="369" width="340" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="373.66666666666669" width="340" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1z-aA-xNO">
-                                                <rect key="frame" x="0.0" y="387" width="340" height="4.6666666666666856"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vw-Et-zaQ">
-                                                <rect key="frame" x="0.0" y="409.66666666666669" width="340" height="20.333333333333314"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Fill out with details." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pIA-fY-xnJ">
-                                                <rect key="frame" x="0.0" y="448" width="340" height="92"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dmP-3x-eAc">
+                                                <rect key="frame" x="0.0" y="412" width="340" height="128"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -285,15 +273,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nFr-G1-GFQ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="Cjv-H7-irn"/>
+                    <navigationItem key="navigationItem" title="About" id="Cjv-H7-irn">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ggR-Cy-Hv5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mQN-hE-T6Q">
+                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Note"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
                         <outlet property="breedsLabel" destination="HaF-Le-lTv" id="h8q-fp-BBh"/>
-                        <outlet property="descriptionLabel" destination="K1z-aA-xNO" id="mh7-s4-Qe7"/>
                         <outlet property="distanceLabel" destination="k8e-yT-M0f" id="2LI-Qc-71u"/>
                         <outlet property="nameLabel" destination="gzo-eD-aqh" id="k3p-5v-XlH"/>
                         <outlet property="nextPhotoButton" destination="5GI-K1-GWw" id="yt3-b3-GIF"/>
-                        <outlet property="notesTextView" destination="pIA-fY-xnJ" id="6Vg-R0-vcl"/>
                         <outlet property="photoImageView" destination="Rno-dP-xTG" id="HQ0-Is-JKf"/>
                         <outlet property="previousPhotoButton" destination="OR0-VC-qst" id="fht-jC-jjr"/>
                         <outlet property="sexLabel" destination="P9h-G9-767" id="ph1-bb-wzk"/>
