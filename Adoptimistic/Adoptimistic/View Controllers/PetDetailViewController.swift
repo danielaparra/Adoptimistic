@@ -29,6 +29,10 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
     @IBAction func pressForNextPhoto(_ sender: Any) {
     }
     
+    @IBAction func addNoteAboutPet(_ sender: Any) {
+        // Add alert controller
+    }
+    
     // MARK: - Private Methods
     
     private func updatePetRepViews() {
@@ -60,9 +64,9 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
         sexLabel.text = petRep.sex
         
         if let description = petRep.petDescription {
-            descriptionLabel.text = description
+            descriptionTextView.text = description
         } else {
-            descriptionLabel.text = "No description available."
+            descriptionTextView.text = "No description available."
         }
         
         //Add other details like options
@@ -110,9 +114,9 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
         sexLabel.text = sex
         
         if let description = pet.petDescription {
-            descriptionLabel.text = description
+            descriptionTextView.text = description
         } else {
-            descriptionLabel.text = "No description available."
+            descriptionTextView.text = "No description available."
         }
         
         //Add other details like options
@@ -139,8 +143,7 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var sexLabel: UILabel!
     @IBOutlet weak var breedsLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var previousPhotoButton: UIButton!
     @IBOutlet weak var nextPhotoButton: UIButton!
     
