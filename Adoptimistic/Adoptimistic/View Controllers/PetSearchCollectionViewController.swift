@@ -67,15 +67,16 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     @IBAction func searchForPets(_ sender: Any) {
         
         guard let zipcode = zipcodeTextField.text,
-            let animalText = animalTextField.text else {
-                // TODO: Account for if user enters no zipcode or no animal
+            let animalText = animalTextField.text,
+            let breedText = breedTextField.text else {
+                // TODO: Account for if user enters no zipcode or no animal or no breed
+                
                 return
         }
         
         let animal = confirmAnimalType(animalText: animalText)
-
+        let breed = confirmBreedType(breedText: breedText, for: animal)
         
-        var breed: String?
         var size: SizeType?
         var sex: GenderType?
         var age: AgeType?
@@ -197,6 +198,15 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
         }
     }
     
+    private func confirmBreedType(breedText: String, for animal: AnimalType?) -> String? {
+        // TODO: Check through breed list to find breeds for animal
+        switch animal {
+        
+        default:
+            return nil
+        }
+    }
+    
     // MARK: - Properties
     
     var petController: PetController?
@@ -223,5 +233,9 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     @IBOutlet weak var moreDetailsStackView: UIStackView!
     @IBOutlet weak var moreDetailsButton: UIButton!
     @IBOutlet weak var loadMoreButton: UIButton!
+    @IBOutlet weak var breedTextField: UITextField!
+    @IBOutlet weak var sexSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var sizeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var ageSegmentedControl: UISegmentedControl!
     
 }

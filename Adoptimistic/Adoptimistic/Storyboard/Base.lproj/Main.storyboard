@@ -58,7 +58,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="mapView" destination="agR-11-Bn3" id="Gws-vN-2Fi"/>
-                        <segue destination="LpW-mH-fYe" kind="show" id="tTj-q2-i1E"/>
+                        <segue destination="LpW-mH-fYe" kind="show" identifier="ViewMapAnnPets" id="tTj-q2-i1E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rC8-fe-lTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -268,16 +268,7 @@
                         <viewLayoutGuide key="safeArea" id="nFr-G1-GFQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="Cjv-H7-irn">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ggR-Cy-Hv5">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mQN-hE-T6Q">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Note"/>
-                                <connections>
-                                    <action selector="addNoteAboutPet:" destination="fDO-iY-peH" eventType="touchUpInside" id="cjV-fZ-Q7q"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add note" style="done" id="ggR-Cy-Hv5"/>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
@@ -592,11 +583,15 @@
                     <navigationItem key="navigationItem" title="Search for adoptable pets" id="g6q-nT-Ili"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="ageSegmentedControl" destination="mMr-bV-oZL" id="Nh8-19-dF0"/>
                         <outlet property="animalTextField" destination="Ksq-4f-rkj" id="LXf-3O-w6g"/>
+                        <outlet property="breedTextField" destination="lPW-lE-TLy" id="zAj-bd-ykp"/>
                         <outlet property="collectionView" destination="OYW-U1-4Z8" id="wEI-m0-Big"/>
                         <outlet property="loadMoreButton" destination="U6w-M6-sDa" id="o5G-of-XT0"/>
                         <outlet property="moreDetailsButton" destination="8eT-7m-U9G" id="BXY-bz-ZTC"/>
                         <outlet property="moreDetailsStackView" destination="b0J-tw-2t0" id="HEJ-Vu-LZD"/>
+                        <outlet property="sexSegmentedControl" destination="6ap-SA-q9U" id="6n8-38-v7P"/>
+                        <outlet property="sizeSegmentedControl" destination="Hsv-kP-iBx" id="9iG-Z5-kT3"/>
                         <outlet property="zipcodeTextField" destination="hgq-e1-OmZ" id="d3c-3i-Qdz"/>
                     </connections>
                 </viewController>
@@ -858,7 +853,7 @@
                                     <outlet property="nameLabel" destination="2m8-KV-Y4w" id="r3L-hU-UTo"/>
                                     <outlet property="petDetailsView" destination="EiQ-1m-zyq" id="T0r-gw-KS4"/>
                                     <outlet property="photoImageView" destination="njG-q2-FNc" id="oSD-ME-Vht"/>
-                                    <segue destination="fDO-iY-peH" kind="show" id="Jvh-6D-u3M"/>
+                                    <segue destination="fDO-iY-peH" kind="show" identifier="ViewMapPet" id="Jvh-6D-u3M"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

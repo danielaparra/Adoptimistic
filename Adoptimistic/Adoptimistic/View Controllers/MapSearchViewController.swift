@@ -14,6 +14,8 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, PetControlle
     func didClickViewPetsButton(on detailAnnotationView: MapPetDetailAnnotationView) {
         guard let petMapAnn = detailAnnotationView.petMapAnn else { return }
         
+        print(petMapAnn.title ?? "No title")
+        
         
     }
     
