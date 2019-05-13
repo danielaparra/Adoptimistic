@@ -66,31 +66,14 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     
     @IBAction func searchForPets(_ sender: Any) {
         
-        guard let zipcode = zipcodeTextField.text else { return }
-        
-        let animalText = animalTextField.text
-        
-        var animal: AnimalType?
-        switch animalText {
-        case AnimalType.barnYard.rawValue:
-            animal = AnimalType.barnYard
-        case AnimalType.bird.rawValue:
-            animal = AnimalType.bird
-        case AnimalType.cat.rawValue:
-            animal = AnimalType.cat
-        case AnimalType.dog.rawValue:
-            animal = AnimalType.dog
-        case AnimalType.horse.rawValue:
-            animal = AnimalType.horse
-        case AnimalType.rabbit.rawValue:
-            animal = AnimalType.rabbit
-        case AnimalType.reptile.rawValue:
-            animal = AnimalType.reptile
-        case AnimalType.smallFurry.rawValue:
-            animal = AnimalType.smallFurry
-        default:
-            animal = nil
+        guard let zipcode = zipcodeTextField.text,
+            let animalText = animalTextField.text else {
+                // TODO: Account for if user enters no zipcode or no animal
+                return
         }
+        
+        let animal = confirmAnimalType(animalText: animalText)
+
         
         var breed: String?
         var size: SizeType?
@@ -185,6 +168,32 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             let petRep = petSearchResults?[indexPath.row]
             destinationVC.petRep = petRep
             destinationVC.petController = petController
+        }
+    }
+    
+    // MARK - Private Methods
+    
+    private func confirmAnimalType(animalText: String) -> AnimalType? {
+        
+        switch animalText {
+        case AnimalType.barnYard.rawValue:
+            return AnimalType.barnYard
+        case AnimalType.bird.rawValue:
+            return AnimalType.bird
+        case AnimalType.cat.rawValue:
+            return AnimalType.cat
+        case AnimalType.dog.rawValue:
+            return AnimalType.dog
+        case AnimalType.horse.rawValue:
+            return AnimalType.horse
+        case AnimalType.rabbit.rawValue:
+            return AnimalType.rabbit
+        case AnimalType.reptile.rawValue:
+            return AnimalType.reptile
+        case AnimalType.smallFurry.rawValue:
+            return AnimalType.smallFurry
+        default:
+            return nil
         }
     }
     
