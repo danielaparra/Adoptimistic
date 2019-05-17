@@ -31,6 +31,35 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
     
     @IBAction func addNoteAboutPet(_ sender: Any) {
         // Add alert controller
+        let alert = UIAlertController(title: "Add a note", message: "By adding a note, you're saving this pet to favorites.", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = ""
+        }
+        
+        let submitAction = UIAlertAction(title: "Save", style: .default) { (action) in
+            guard let textField = alert.textFields?.first,
+                let text = textField.text else { return }
+            
+            if self.pet == nil && text != "" {
+                
+                guard let petRep = self.petRep else { return }
+                
+                self.petController?.addPetToFavorites(petRep: petRep, notes: text)
+                
+            } else {
+                guard let pet = self.pet else { return }
+                
+                self.petController?.updatePetInFavorites(pet: pet, notes: text)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Private Methods

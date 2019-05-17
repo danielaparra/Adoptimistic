@@ -15,8 +15,6 @@ protocol PetResultCellDelegate: class {
 
 class PetResultCollectionViewCell: UICollectionViewCell {
     
-    
-    
     @IBAction func clickFavoriteButton(_ sender: Any) {
         guard let petRep = petRep else { return }
         

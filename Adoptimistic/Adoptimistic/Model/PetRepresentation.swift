@@ -38,6 +38,9 @@ class PetRepresentation: NSObject, Decodable{
                 lhs.email == rhs.email
         }
         
+        //TO DO: Fix hashvalue call.
+        
+        
         var hashValue: Int {
             return city.hashValue ^ address.hashValue ^ state.hashValue ^ zipcode.hashValue ^ phone.hashValue ^ email.hashValue
         }
@@ -124,6 +127,7 @@ class PetRepresentation: NSObject, Decodable{
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        
 //        let optionsContainer = try container.nestedContainer(keyedBy: OptionsCodingKeys.self, forKey: .options)
 //        var optionContainer = try optionsContainer.nestedUnkeyedContainer(forKey: .option)
 //        var optionStrings: [String] = []

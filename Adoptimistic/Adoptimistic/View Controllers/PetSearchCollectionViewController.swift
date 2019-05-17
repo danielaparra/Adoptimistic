@@ -28,13 +28,16 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             petRep.isFavorite = true
         } else {
             //find pet equal to pet rep
+            
             //remove pet from favorites
+            petRep.isFavorite = false
         }
     }
     
     // MARK: - IBActions
     
     @IBAction func getCurrentLocation(_ sender: Any) {
+        let locationManager = CLLocationManager()
         let geocoder = CLGeocoder()
         locationManager.requestWhenInUseAuthorization()
         
@@ -109,8 +112,10 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     }
     
     @IBAction func findMorePets(_ sender: Any) {
+        
         guard let savedLocation = savedLocation else { return }
         
+        // Call Petfinder client to find more pets from passed in offset value.
         PetfinderClient.shared.findPets(near: savedLocation, animal: animal, breed: breed, size: size, sex: sex, age: age, offset: offset) { (petResults, lastOffset, error) in
             if let error = error {
                 NSLog("Error finding pets: \(error)")
@@ -120,14 +125,15 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             guard let petResults = petResults,
                 let lastOffset = lastOffset else { return }
             
+            // Update pet search results and offset value.
             self.offset = lastOffset
             self.petSearchResults?.append(contentsOf: petResults)
         }
     }
     
+    // Update more details stack view and button according to user interaction.
     @IBAction func addMoreDetails(_ sender: Any) {
-        
-        if moreDetailsIsHidden {
+        if moreDetailsStackView.isHidden {
             moreDetailsStackView.isHidden = false
             moreDetailsButton.setTitle("Show less details", for: .normal)
         } else {
@@ -257,7 +263,7 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
             }
         }
     }
-    private var moreDetailsIsHidden = true
+    
     private var savedLocation: String?
     private var animal: AnimalType?
     private var breed: String?
@@ -265,7 +271,6 @@ class PetSearchCollectionViewController: UIViewController, PetControllerProtocol
     private var sex: GenderType?
     private var age: AgeType?
     private var offset: String?
-    private var locationManager = CLLocationManager()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var zipcodeTextField: UITextField!
