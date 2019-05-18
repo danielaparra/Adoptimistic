@@ -139,8 +139,27 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
             breedsLabel.text = "No breed specified"
         }
         
-        sizeLabel.text = size
-        sexLabel.text = sex
+        switch size {
+        case SizeType.small.rawValue:
+            sizeLabel.text = "Small"
+        case SizeType.medium.rawValue:
+            sizeLabel.text = "Medium"
+        case SizeType.large.rawValue:
+            sizeLabel.text = "Large"
+        case SizeType.extraLarge.rawValue:
+            sizeLabel.text = "Extra Large"
+        default:
+            sizeLabel.text = ""
+        }
+        
+        switch sex {
+        case GenderType.f.rawValue:
+            sexLabel.text = "Female"
+        case GenderType.m.rawValue:
+            sexLabel.text = "Male"
+        default:
+            sexLabel.text = ""
+        }
         
         if let description = pet.petDescription {
             descriptionTextView.text = description
