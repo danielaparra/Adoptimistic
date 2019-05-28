@@ -128,14 +128,28 @@ class PetRepresentation: NSObject, Decodable{
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-//        let optionsContainer = try container.nestedContainer(keyedBy: OptionsCodingKeys.self, forKey: .options)
-//        var optionContainer = try optionsContainer.nestedUnkeyedContainer(forKey: .option)
-//        var optionStrings: [String] = []
-//        while !optionContainer.isAtEnd {
-//            let optionDictionary = try optionContainer.nestedContainer(keyedBy: TCodingKey.self)
-//            let option = try optionDictionary.decode(String.self, forKey: .t)
-//            optionStrings.append(option)
-//        }
+        let optionsContainer = try container.nestedContainer(keyedBy: OptionsCodingKeys.self, forKey: .options)
+        
+        var optionStrings: [String] = []
+        do {
+            var optionContainer = try optionsContainer.nestedUnkeyedContainer(forKey: .option)
+            while !optionContainer.isAtEnd {
+                let optionDictionary = try optionContainer.nestedContainer(keyedBy: TCodingKey.self)
+                let option = try optionDictionary.decode(String.self, forKey: .t)
+                optionStrings.append(option)
+            }
+        } catch {
+            print("here")
+            do {
+                print("here2")
+                let optionContainer = try optionsContainer.nestedContainer(keyedBy: TCodingKey.self, forKey: .option)
+                let optionString = try optionContainer.decode(String.self, forKey: .t)
+                optionStrings.append(optionString)
+            } catch {
+                print("here3")
+            }
+        }
+
         //haven't accounted for just one option or nil
         
         let ageContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .age)
@@ -151,7 +165,7 @@ class PetRepresentation: NSObject, Decodable{
         while !photoContainer.isAtEnd {
             let photo = try photoContainer.nestedContainer(keyedBy: PhotoCodingKeys.self)
             let size = try photo.decode(String.self, forKey: .size)
-            if size == "fpm" { //95 pixels wide
+            if size == "fpm" { //95 pixels wide or go for one size up
                 let photoURLString = try photo.decode(String.self, forKey: .t)
                 photos.append(photoURLString)
             }
@@ -182,7 +196,7 @@ class PetRepresentation: NSObject, Decodable{
         
         let contact = try container.decode(Contact.self, forKey: .contact)
         
-        self.options = [""]
+        self.options = optionStrings
         self.age = age
         self.size = size
         self.photos = photos

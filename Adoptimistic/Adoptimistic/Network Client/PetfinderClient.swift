@@ -38,7 +38,7 @@ class PetfinderClient {
             parameters["offset"] = offset
         }
         
-        print(parameters)
+        //print(parameters)
         
         let queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponents?.queryItems = queryItems
@@ -59,6 +59,10 @@ class PetfinderClient {
                 NSLog("No data returned by data task")
                 completion(nil, nil, NSError())
                 return
+            }
+            
+            if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+                print(JSONString)
             }
             
             do {
