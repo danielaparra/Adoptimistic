@@ -38,11 +38,13 @@ class PetRepresentation: NSObject, Decodable{
                 lhs.email == rhs.email
         }
         
-        //TO DO: Fix hashvalue call.
-        
-        
-        var hashValue: Int {
-            return city.hashValue ^ address.hashValue ^ state.hashValue ^ zipcode.hashValue ^ phone.hashValue ^ email.hashValue
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(city)
+            hasher.combine(address)
+            hasher.combine(state)
+            hasher.combine(zipcode)
+            hasher.combine(phone)
+            hasher.combine(email)
         }
         
         let city: String
