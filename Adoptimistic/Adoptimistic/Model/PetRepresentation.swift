@@ -125,6 +125,10 @@ class PetRepresentation: NSObject, Decodable{
         case id = "@id"
     }
     
+    enum BreedsCodingKeys: String, CodingKey {
+        case breed
+    }
+    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -139,18 +143,14 @@ class PetRepresentation: NSObject, Decodable{
                 optionStrings.append(option)
             }
         } catch {
-            print("here")
             do {
-                print("here2")
                 let optionContainer = try optionsContainer.nestedContainer(keyedBy: TCodingKey.self, forKey: .option)
                 let optionString = try optionContainer.decode(String.self, forKey: .t)
                 optionStrings.append(optionString)
             } catch {
-                print("here3")
+                print("options might be nil")
             }
         }
-
-        //haven't accounted for just one option or nil
         
         let ageContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .age)
         let age = try ageContainer.decode(String.self, forKey: .t)
@@ -176,7 +176,24 @@ class PetRepresentation: NSObject, Decodable{
         let shelterPetIdContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .shelterPetId)
         let shelterPetId = try shelterPetIdContainer.decodeIfPresent(String.self, forKey: .t) ?? nil
         
-        //breeds one or many
+        let breedsContainer = try container.nestedContainer(keyedBy: BreedsCodingKeys.self, forKey: .breeds)
+        var breedStrings: [String] = []
+        do {
+            var breedContainer = try breedsContainer.nestedUnkeyedContainer(forKey: .breed)
+            while !breedContainer.isAtEnd {
+                let breedDictionary = try breedContainer.nestedContainer(keyedBy: TCodingKey.self)
+                let breed = try breedDictionary.decode(String.self, forKey: .t)
+                breedStrings.append(breed)
+            }
+        } catch {
+            do {
+                let breedContainer = try breedsContainer.nestedContainer(keyedBy: TCodingKey.self, forKey: .breed)
+                let breed = try breedContainer.decode(String.self, forKey: .t)
+                breedStrings.append(breed)
+            } catch {
+                print("breeds might be nil")
+            }
+        }
         
         let nameContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .name)
         let name = try nameContainer.decode(String.self, forKey: .t)
@@ -202,8 +219,7 @@ class PetRepresentation: NSObject, Decodable{
         self.photos = photos
         self.identifier = Int16(identifierString) ?? 0 //Should never be zero.
         self.shelterPetId = shelterPetId
-        //breeds
-        self.breeds = [""]
+        self.breeds = breedStrings
         self.name = name
         self.sex = sex
         self.petDescription = description
