@@ -93,14 +93,9 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
             breedsLabel.text = "No breed specified"
         }
         
-        sizeLabel.text = petRep.size
-        sexLabel.text = petRep.sex
-        
-        if let description = petRep.petDescription {
-            descriptionTextView.text = description
-        } else {
-            descriptionTextView.text = "No description available."
-        }
+        sizeLabel.text = determine(size: petRep.size)
+        sexLabel.text = determine(gender: petRep.sex)
+        descriptionTextView.text = determine(description: petRep.petDescription)
         
         //Add other details like options
     }
@@ -147,37 +142,48 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
             breedsLabel.text = "No breed specified"
         }
         
-        switch size {
-        case SizeType.small.rawValue:
-            sizeLabel.text = "Small"
-        case SizeType.medium.rawValue:
-            sizeLabel.text = "Medium"
-        case SizeType.large.rawValue:
-            sizeLabel.text = "Large"
-        case SizeType.extraLarge.rawValue:
-            sizeLabel.text = "Extra Large"
-        default:
-            sizeLabel.text = ""
-        }
-        
-        switch sex {
-        case GenderType.f.rawValue:
-            sexLabel.text = "Female"
-        case GenderType.m.rawValue:
-            sexLabel.text = "Male"
-        default:
-            sexLabel.text = ""
-        }
-        
-        if let description = pet.petDescription {
-            descriptionTextView.text = description
-        } else {
-            descriptionTextView.text = "No description available."
-        }
+        sizeLabel.text = determine(size: size)
+        sexLabel.text = determine(gender: sex)
+        descriptionTextView.text = determine(description: description)
         
         //Add other details like options
     }
     
+    // MARK - Private Methods
+    
+    private func determine(gender: String) -> String {
+        switch gender {
+        case GenderType.f.rawValue:
+            return "Female"
+        case GenderType.m.rawValue:
+            return "Male"
+        default:
+            return "No gender specified"
+        }
+    }
+    
+    private func determine(size: String) -> String {
+        switch size {
+        case SizeType.small.rawValue:
+            return "Small"
+        case SizeType.medium.rawValue:
+            return "Medium"
+        case SizeType.large.rawValue:
+            return "Large"
+        case SizeType.extraLarge.rawValue:
+            return "Extra Large"
+        default:
+            return "No size specified"
+        }
+    }
+    
+    private func determine(description: String?) -> String {
+        if let description = description {
+            return description
+        } else {
+            return "No description available."
+        }
+    }
     // MARK: - Properties
     
     var petRep: PetRepresentation? {
