@@ -137,11 +137,11 @@ class PetDetailViewController: UIViewController, PetControllerProtocol {
         }
         
         if let breeds = pet.breeds {
-            let breedsString = breeds.joined(separator: ", ")
-            if breedsString != "" {
-                breedsLabel.text = "Breed(s): \(breedsString)"
+            if breeds.count == 1 {
+                breedsLabel.text = "Breed: \(breeds.first ?? "No breed")"
             } else {
-                breedsLabel.text = "No breed specified"
+                let breedsString = breeds.joined(separator: ", ")
+                breedsLabel.text = "Breeds: \(breedsString)"
             }
         } else {
             breedsLabel.text = "No breed specified"
