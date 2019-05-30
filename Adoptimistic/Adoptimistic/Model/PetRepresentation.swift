@@ -159,18 +159,22 @@ class PetRepresentation: NSObject, Decodable{
         let sizeContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .size)
         let size = try sizeContainer.decode(String.self, forKey: .t)
         
-        let mediaContainer = try container.nestedContainer(keyedBy: MediaCodingKeys.self, forKey: .media)
-        let photosContainer = try mediaContainer.nestedContainer(keyedBy: PhotosCodingKeys.self, forKey: .photos)
-        var photoContainer = try photosContainer.nestedUnkeyedContainer(forKey: .photo)
         var photos = [String]()
-        
-        while !photoContainer.isAtEnd {
-            let photo = try photoContainer.nestedContainer(keyedBy: PhotoCodingKeys.self)
-            let size = try photo.decode(String.self, forKey: .size)
-            if size == "fpm" { //95 pixels wide or go for one size up
-                let photoURLString = try photo.decode(String.self, forKey: .t)
-                photos.append(photoURLString)
+        do {
+            let mediaContainer = try container.nestedContainer(keyedBy: MediaCodingKeys.self, forKey: .media)
+            let photosContainer = try mediaContainer.nestedContainer(keyedBy: PhotosCodingKeys.self, forKey: .photos)
+            var photoContainer = try photosContainer.nestedUnkeyedContainer(forKey: .photo)
+            
+            while !photoContainer.isAtEnd {
+                let photo = try photoContainer.nestedContainer(keyedBy: PhotoCodingKeys.self)
+                let size = try photo.decode(String.self, forKey: .size)
+                if size == "fpm" { //95 pixels wide or go for one size up
+                    let photoURLString = try photo.decode(String.self, forKey: .t)
+                    photos.append(photoURLString)
+                }
             }
+        } catch {
+            
         }
         
         let idContainer = try container.nestedContainer(keyedBy: TCodingKey.self, forKey: .id)

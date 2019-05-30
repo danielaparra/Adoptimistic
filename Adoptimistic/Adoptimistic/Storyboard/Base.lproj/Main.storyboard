@@ -133,7 +133,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8e-yT-M0f">
-                                                                                <rect key="frame" x="28.000000000000014" y="0.0" width="65.666666666666671" height="20.333333333333332"/>
+                                                                                <rect key="frame" x="28" y="0.0" width="65.666666666666671" height="20.333333333333332"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -150,13 +150,13 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="l" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzJ-Ug-AEs">
-                                                                                <rect key="frame" x="40.333333333333329" y="0.0" width="13" height="20.333333333333332"/>
+                                                                                <rect key="frame" x="40.333333333333314" y="0.0" width="13" height="20.333333333333332"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9h-G9-767">
-                                                                                <rect key="frame" x="61.333333333333329" y="0.0" width="32.333333333333329" height="20.333333333333332"/>
+                                                                                <rect key="frame" x="61.333333333333314" y="0.0" width="32.333333333333343" height="20.333333333333332"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -206,6 +206,11 @@
                                                                     <constraint firstAttribute="height" constant="50" id="EsV-Jc-dVL"/>
                                                                     <constraint firstAttribute="width" constant="50" id="W3d-Vp-41u"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="W3d-Vp-41u"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoCats" translatesAutoresizingMaskIntoConstraints="NO" id="Vfc-Fm-22G">
                                                                 <rect key="frame" x="140.66666666666666" y="0.0" width="62.333333333333343" height="50"/>
@@ -213,6 +218,11 @@
                                                                     <constraint firstAttribute="height" constant="50" id="e8J-vJ-CXa"/>
                                                                     <constraint firstAttribute="width" constant="50" id="vvs-tE-6fp"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="vvs-tE-6fp"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoDogs" translatesAutoresizingMaskIntoConstraints="NO" id="Z7U-l3-bBP">
                                                                 <rect key="frame" x="211" y="0.0" width="62.333333333333314" height="50"/>
@@ -220,6 +230,11 @@
                                                                     <constraint firstAttribute="height" constant="50" id="4Ic-d9-7PM"/>
                                                                     <constraint firstAttribute="width" constant="50" id="F1e-y3-wOd"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="F1e-y3-wOd"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoKids" translatesAutoresizingMaskIntoConstraints="NO" id="R85-xZ-U7H">
                                                                 <rect key="frame" x="281.33333333333331" y="0.0" width="62.333333333333314" height="50"/>
@@ -227,6 +242,11 @@
                                                                     <constraint firstAttribute="width" constant="50" id="PCs-B5-GZ7"/>
                                                                     <constraint firstAttribute="height" constant="50" id="frD-Mn-2jI"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="PCs-B5-GZ7"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </imageView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8m-Qb-mox">
                                                                 <rect key="frame" x="351.66666666666669" y="0.0" width="62.333333333333314" height="50"/>
